@@ -9,6 +9,8 @@ namespace GameManager
 
 	static void loadingScreen();
 
+	static void processingScreen();
+
 	static void playGame(Game& game);
 
 	static void trackLeftTime(Game& game);

@@ -147,8 +147,6 @@ void GameManager::start()
 			continue;
 		}
 
-		GameMenu::printColoredLines();
-
 		while (TRUE)
 		{
 			GameMenu::printBuildsScreen(mapVariant);
@@ -165,10 +163,7 @@ void GameManager::start()
 			}
 
 			std::thread load(loadingScreen);
-
-			Map map = createMap(mapVariant, mapBuild);
-			Game game(map);
-
+			Game game(createMap(mapVariant, mapBuild));					
 			load.join();
 
 			GameInterface::displayGameInterface(game);
@@ -180,7 +175,7 @@ void GameManager::start()
 			}
 
 			Console::clearConsole();
-			exit(GM_EXIT);
+			exit(GM_EXIT);		
 		}
 	}
 }
@@ -219,6 +214,28 @@ void GameManager::loadingScreen()
 	Console::clearConsole(GM_FIRST_ROW, GM_FIRST_ROW);
 	Console::printLine("loading...", Console::Alignment::Center);
 	Sleep(200);
+
+	Console::clearConsole(GM_FIRST_ROW, GM_FIRST_ROW);
+}
+
+void GameManager::processingScreen()
+{
+	Console::clearConsole();
+
+	Console::printLine("processing   ", Console::Alignment::Center);
+	Sleep(200);
+
+	Console::clearConsole(GM_FIRST_ROW, GM_FIRST_ROW);
+	Console::printLine("processing.  ", Console::Alignment::Center);
+	Sleep(200);
+
+	Console::clearConsole(GM_FIRST_ROW, GM_FIRST_ROW);
+	Console::printLine("processing.. ", Console::Alignment::Center);
+	Sleep(300);
+
+	Console::clearConsole(GM_FIRST_ROW, GM_FIRST_ROW);
+	Console::printLine("processing...", Console::Alignment::Center);
+	Sleep(100);
 
 	Console::clearConsole(GM_FIRST_ROW, GM_FIRST_ROW);
 }
@@ -326,7 +343,7 @@ void GameManager::GameInterface::updateStats(Game& game)
 
 void GameManager::GameInterface::printStats(const Game& game)
 {
-	static uint8_t statsRow = game.getMap().getDimensions().Height + 2;
+	uint8_t statsRow = game.getMap().getDimensions().Height + 2;
 
 	{
 		std::lock_guard<std::mutex> lockThread(Multithread::coutMutex);
@@ -414,7 +431,8 @@ bool GameManager::checkGameEndingState(const Game& game)
 	Console::clearConsole();
 	Console::setConsoleSize(GM_CONSOLE_WIDTH, GM_CONSOLE_HEIGHT);
 
-	Sleep(150);
+	Console::setConsoleColor(DEF_FOREGOUND_COLOR);
+	processingScreen();
 
 	GameMenu::printColoredLines(false);
 
@@ -443,14 +461,11 @@ bool GameManager::checkGameEndingState(const Game& game)
 	{
 		throw std::runtime_error("Unknown error occured during playing game");
 	}
-
-	return false;
 }
 
 bool GameManager::GameMenu::checkPlayAgain()
 {
 	Console::clearConsole(1, GM_LAST_ROW - 1);
-
 	GamePrints::s_PlayAgainScreen.displayContent(Console::Alignment::Center);
 
 	return checkYoNAnswer();
@@ -472,7 +487,7 @@ void GameManager::playGame(Game& game)
 			break; 
 		}
 
-		updateGame(game, key);
+		updateGame(game, key);//da paterniziram item poly hierc.
 	}
 
 	checkEndConditions.join();
@@ -545,15 +560,14 @@ void GameManager::GameMenu::printVariantsScreen()
 	GameMenu::printColoredLines();
 	GameMenu::printLogo();
 	GameMenu::printVariants();
-	GameMenu::printColoredLines();
 }
 
 void GameManager::GameMenu::printBuildsScreen(uint8_t mapVariant)
 {
-	Console::clearConsole(1, GM_LAST_ROW - 1);
+	Console::clearConsole();
+	GameMenu::printColoredLines();
 	GameMenu::printLogo();
 	GameMenu::printBuilds(mapVariant);
-	GameMenu::printColoredLines();
 }
 
 uint8_t GameManager::GameMenu::getMapVariant()
@@ -575,16 +589,12 @@ uint8_t GameManager::GameMenu::getMapVariant()
 		{
 			GameMenu::printHelp();
 			GameMenu::exitHelp();
-			GameMenu::printLogo();
-			GameMenu::printVariants();
-			GameMenu::printColoredLines();
+			GameMenu::printVariantsScreen();
 		}
 		else if (ExitGame::isPressedESC(key))
 		{
 			GameMenu::checkExitScreen();
-			GameMenu::printLogo();
-			GameMenu::printVariants();
-			GameMenu::printColoredLines();
+			GameMenu::printVariantsScreen();
 		}
 	}
 }
@@ -610,16 +620,12 @@ uint8_t GameManager::GameMenu::getMapBuild(uint8_t mapVariant)
 		{
 			GameMenu::printHelp();
 			GameMenu::exitHelp();
-			GameMenu::printLogo();
-			GameMenu::printBuilds(mapVariant);
-			GameMenu::printColoredLines();
+			GameMenu::printBuildsScreen(mapVariant);		
 		}
 		else if (ExitGame::isPressedESC(key))
 		{
 			GameMenu::checkExitScreen();
-			GameMenu::printLogo();
-			GameMenu::printBuilds(mapVariant);
-			GameMenu::printColoredLines();
+			GameMenu::printBuildsScreen(mapVariant);
 		}
 	}
 }

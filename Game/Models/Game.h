@@ -3,8 +3,6 @@
 //-----------------------
 #include <Models/Timer.h>
 
-#define DEF_X 1
-
 class Game
 {
 public:
@@ -38,7 +36,7 @@ public:
 	void updateGameStats(polymorphic_ptr<Item> item);
 
 private:
-	const Map& m_Map;
+	Map m_Map;
 
 	Timer m_PlayedTime;
 

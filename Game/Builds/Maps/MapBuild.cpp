@@ -30,14 +30,14 @@ using namespace MapDimensions;
 
 Map AlphabeticBuild::buildAzbuki()
 {
-    Map map(AlphabeticDimensions::s_AzbukiDimensions, 200, make_polymorphic<AlphabeticOnlyItems>());
+    Map map(AlphabeticDimensions::s_AzbukiDimensions, 100, make_polymorphic<AlphabeticOnlyItems>());
 
     map.setPlayer({ 24, 13 });
 
     #include "ObsticlesBuilds/AzbukiObsticles.txt"
 
-    map.addItem(make_polymorphic<Item>(1, 1, 'z', 12, 12));
-    map.addItem(make_polymorphic<Item>(1, 2, 'a', 13, 13));
+    map.addItem(make_polymorphic<Item>(24, 10, 'z', 5, 10));
+    map.addItem(make_polymorphic<Item>(23, 10, 'a', 7, 10));
 
     return map;
 }
