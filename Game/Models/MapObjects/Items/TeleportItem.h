@@ -4,14 +4,15 @@
 class TeleportItem : public Item
 {
 public:
-	TeleportItem(uint8_t x, uint8_t y, uint8_t seconds, uint8_t teleportX, uint8_t teleportY);
-	TeleportItem(Coord coords, uint8_t seconds, Coord teleportCoords);
+	TeleportItem(uint8_t x, uint8_t y, uint8_t teleportX, uint8_t teleportY);
+	TeleportItem(Coord coords, Coord teleportCoords);
 
-	void teleportPlayer(Coord& coords) const;
+	void modifySeconds(uint8_t& seconds) const;
+	virtual void teleportPlayer(Coord& coords) const;
 
 	Item* clone() const override;
 
-private:
+protected:
 	Coord m_TeleportCoords;
 };
 

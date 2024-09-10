@@ -39,7 +39,7 @@
     <ClCompile Include="Builds\Maps\MapBuild.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Builds\MapCount.cpp">
+    <ClCompile Include="Builds\MapCounts.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Models\MapObjects\MapEntity.cpp">
@@ -64,6 +64,15 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Models\MapObjects\Items\TeleportItem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Models\MapObjects\Items\ItemTypes.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Models\MapObjects\Items\TimyItem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Models\MapObjects\Items\TrollItem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -117,6 +126,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Models\MapObjects\Items\TeleportItem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Models\MapObjects\Items\ItemTypes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Models\MapObjects\Items\TimyItem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Models\MapObjects\Items\TrollItem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

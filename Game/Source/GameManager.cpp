@@ -1,6 +1,6 @@
 #include "GameManager.h"
 //--------------------------------------------------
-#include "../Models/MapObjects/Items/TeleportItem.h"
+#include "../Models/MapObjects/Items/ItemTypes.h"
 //--------------------------------------------------
 #include "../Builds/MapFactory.h"
 #include "../Builds/MapCounts.h"
@@ -487,7 +487,7 @@ void GameManager::playGame(Game& game)
 			break; 
 		}
 
-		updateGame(game, key);//da paterniziram item poly hierc.
+		updateGame(game, key);
 	}
 
 	checkEndConditions.join();
@@ -520,18 +520,16 @@ void GameManager::updateGame(Game& game, uint8_t key)
 	}
 	case MapSymbolType::Item:
 	{
-		polymorphic_ptr<Item> item = map.getItem(updatedCoords);
-
-		if (!game.hasCollectedItem(item->getCoords()))
+		if (!game.hasCollectedItem(updatedCoords))
 		{
+			polymorphic_ptr<Item> item = map.getItem(updatedCoords);
+
 			game.updateGameStats(item);
 			
-			/*Soon Teleport Item, though this code works it isn't reusable..must be patternized
+			/*//Soon Teleport Item, though this code works it isn't reusable..must be patternized
 			if (dynamic_cast<TeleportItem*>(item.get()))
 			{
 				TeleportItem* proba = dynamic_cast<TeleportItem*>(item.get());
-				Coord conCoords = GameInterface::mapCoordsToConsoleCoords(updatedCoords, map.getDimensions());
-				Console::printSymbolAt(conCoords.X, conCoords.Y, Symbols::ce_WhiteSpace);
 				proba->teleportPlayer(updatedCoords);
 			}
 			*/
@@ -545,7 +543,6 @@ void GameManager::updateGame(Game& game, uint8_t key)
 	{
 		{
 			std::lock_guard<std::mutex> lockThread(Multithread::coutMutex);
-
 			GameInterface::movePlayer(updatedCoords, game.getCurrentPlayer().getCoords(), map.getDimensions());
 		}
 		game.updateCurrentPlayer(updatedCoords);

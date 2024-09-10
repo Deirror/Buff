@@ -156,9 +156,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Models\MapObjects\Items\ItemTypes.cpp" />
     <ClCompile Include="Models\ItemValidities\AlphabeticOnlyItems.cpp" />
     <ClCompile Include="Models\ItemValidities\AcceptAllItems.cpp" />
-    <ClCompile Include="Builds\MapCount.cpp" />
+    <ClCompile Include="Builds\MapCounts.cpp" />
     <ClCompile Include="Builds\MapCounts.h" />
     <ClCompile Include="Builds\GamePrints.h" />
     <ClCompile Include="Builds\MapFactory.cpp" />
@@ -173,9 +174,12 @@
     <ClCompile Include="Models\Game.cpp" />
     <ClCompile Include="Source\Main.cpp" />
     <ClCompile Include="Models\MapObjects\Items\TeleportItem.cpp" />
+    <ClCompile Include="Models\MapObjects\Items\TimyItem.cpp" />
+    <ClCompile Include="Models\MapObjects\Items\TrollItem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Builds\MapSymbols.h" />
+    <ClInclude Include="Models\MapObjects\Items\ItemTypes.h" />
     <ClInclude Include="Models\ItemValidities\AlphabeticOnlyItems.h" />
     <ClInclude Include="Models\ItemValidities\AcceptAllItems.h" />
     <ClInclude Include="Builds\MapNames.h" />
@@ -192,6 +196,8 @@
     <ClInclude Include="Models\Map.h" />
     <ClInclude Include="Models\Game.h" />
     <ClInclude Include="Models\MapObjects\Items\TeleportItem.h" />
+    <ClInclude Include="Models\MapObjects\Items\TimyItem.h" />
+    <ClInclude Include="Models\MapObjects\Items\TrollItem.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Builds\Maps\ObsticlesBuilds\AzbukiObsticles.txt" />
