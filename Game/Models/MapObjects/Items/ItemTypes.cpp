@@ -14,6 +14,10 @@ ItemType getItemType(polymorphic_ptr<Item> item)
     {
         return ItemType::TeleportItem;
     }
+    else if (dynamic_cast<RandomItem*>(item.get()))
+    {
+        return ItemType::RandomItem;
+    }
 
     return ItemType::NormalItem;
 }

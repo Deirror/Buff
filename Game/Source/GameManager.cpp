@@ -530,6 +530,7 @@ void GameManager::updateGame(Game& game, uint8_t key)
 			{
 			case ItemType::NormalItem:
 			case ItemType::TimyItem:
+			case ItemType::RandomItem:
 			{
 				game.updateGameStats(item);
 				game.addCollectedItemCoords(item->getCoords());

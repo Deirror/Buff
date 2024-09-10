@@ -87,7 +87,7 @@ private:
 };
 
 template<const size_t size>
-Buffer<char, size>::Buffer(const char* data)
+inline Buffer<char, size>::Buffer(const char* data)
 {
 	std::strncpy(m_Data, data, size);
 }

@@ -169,6 +169,7 @@
     <ClCompile Include="Models\MapObjects\Obsticle.cpp" />
     <ClCompile Include="Models\MapObjects\Player.cpp" />
     <ClCompile Include="Models\ItemValidities\RandomOnlyItems.cpp" />
+    <ClCompile Include="Models\MapObjects\Items\RandomItem.cpp" />
     <ClCompile Include="Source\GameManager.cpp" />
     <ClCompile Include="Models\Map.cpp" />
     <ClCompile Include="Models\Game.cpp" />
@@ -191,6 +192,7 @@
     <ClInclude Include="Models\MapObjects\Obsticle.h" />
     <ClInclude Include="Models\MapObjects\Player.h" />
     <ClInclude Include="Models\ItemValidities\RandomOnlyItems.h" />
+    <ClInclude Include="Models\MapObjects\Items\RandomItem.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Source\GameManager.h" />
     <ClInclude Include="Models\Map.h" />

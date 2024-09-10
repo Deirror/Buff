@@ -75,6 +75,9 @@
     <ClCompile Include="Models\MapObjects\Items\TrollItem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Models\MapObjects\Items\RandomItem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Models\Game.h">
@@ -135,6 +138,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Models\MapObjects\Items\TrollItem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Models\MapObjects\Items\RandomItem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

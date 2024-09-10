@@ -3,6 +3,7 @@
 #include "../../Models/ItemValidities/AlphabeticOnlyItems.h"
 #include "../../Models/ItemValidities/RandomOnlyItems.h"
 #include "../../Models/MapObjects/Items/TeleportItem.h"
+#include "../../Models/MapObjects/Items/RandomItem.h"
 #include "../../Models/MapObjects/Items/TrollItem.h"
 #include "../../Models/MapObjects/Items/TimyItem.h"
 
@@ -81,14 +82,16 @@ Map ImposterBuild::buildDOOMz()
 
 Map ImposterBuild::buildBAK()
 {
-    Map map(ImposterDimensions::s_BAKDimensions, 7, make_polymorphic<AcceptAllItems>());
+    Map map(ImposterDimensions::s_BAKDimensions, 27, make_polymorphic<AcceptAllItems>());
 
     map.setPlayer({ 1,2 });
 
-    map.addItem(make_polymorphic<Item>(3, 3, 'z', 12, 12));
-    map.addItem(make_polymorphic<Item>(5, 12, 'a', 13, 13));
-    map.addItem(make_polymorphic<TeleportItem>(11, 12, 12, 14));
-    map.addItem(make_polymorphic<TrollItem>(17, 19, 't', 10, 10));
+    map.addItem(make_polymorphic<Item>(3, 3, 'z', 12, 30));
+    map.addItem(make_polymorphic<Item>(5, 12, 'a', 13, 21));
+    map.addItem(make_polymorphic<TeleportItem>(11, 12, 13, 16));
+    map.addItem(make_polymorphic<TrollItem>(17, 19, '@', 5, 5));
+    map.addItem(make_polymorphic<TimyItem>(22, 20, 't', 252));
+    map.addItem(make_polymorphic<RandomItem>(10, 20, 200, 20));
 
     return map;
 }

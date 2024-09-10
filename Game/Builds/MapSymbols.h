@@ -36,6 +36,7 @@ namespace MapSymbols
 		namespace Items
 		{
 			constexpr char ce_TeleportItem = '~';
+			constexpr char ce_RandomItem = '?';
 		}
 	}
 }
