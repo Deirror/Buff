@@ -1,2 +1,2 @@
 # Buff
-//TO DO
+//TO DO, be patient
