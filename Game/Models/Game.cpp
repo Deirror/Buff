@@ -30,7 +30,7 @@ uint8_t Game::getLeftTime() const
     return m_LeftTime;
 }
 
-uint8_t Game::getPoints() const
+uint16_t Game::getPoints() const
 {
     return m_Points;
 }
@@ -60,7 +60,7 @@ void Game::updateCurrentPlayer(Coord coords)
     m_CurrentPlayer.setCoords(coords);
 }
 
-void Game::setPoints(uint8_t points)
+void Game::setPoints(uint16_t points)
 {
     m_Points = points;
 }

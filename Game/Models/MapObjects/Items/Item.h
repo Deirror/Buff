@@ -7,7 +7,7 @@ public:
 	Item(uint8_t x, uint8_t y, uint8_t symbol, uint8_t points, uint8_t seconds);
 	Item(Coord coords, uint8_t symbol, uint8_t points, uint8_t seconds);
 
-	virtual void modifyPoints(uint8_t& points) const;
+	virtual void modifyPoints(uint16_t& points) const;
 	virtual void modifySeconds(uint8_t& seconds) const;
 
 	virtual Item* clone() const;

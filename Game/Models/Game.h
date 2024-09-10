@@ -14,10 +14,10 @@ public:
 	void startTimer();
 
 	uint8_t getPlayedTime() const;
-	Player getCurrentPlayer() const;
+	Player  getCurrentPlayer() const;
 
-	uint8_t getLeftTime() const;
-	uint8_t getPoints() const;
+	uint8_t  getLeftTime() const;
+	uint16_t getPoints() const;
 
 	bool isEnded() const;
 
@@ -27,14 +27,14 @@ public:
 	void decrementLeftTime();
 	void updateCurrentPlayer(Coord coords);
 
-	void setPoints(uint8_t points);
+	void setPoints(uint16_t  points);
 	void setLeftTime(uint8_t leftTime);
 
 	void addCollectedItemCoords(Coord coords);
 
 	uint8_t getCollectedItems() const;
-	bool hasCollectedItem(Coord coords) const;
 
+	bool hasCollectedItem(Coord coords) const;
 	void updateGameStats(polymorphic_ptr<Item> item);
 
 private:
@@ -44,8 +44,8 @@ private:
 
 	Player m_CurrentPlayer;
 
-	uint8_t m_LeftTime = NULL;
-	uint8_t m_Points = NULL;
+	uint8_t  m_LeftTime = NULL;
+	uint16_t m_Points = NULL;
 
 	std::vector<Coord> m_CollectedItemsCoords;
 };

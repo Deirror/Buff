@@ -10,7 +10,7 @@ Item::Item(Coord coords, uint8_t symbol, uint8_t points, uint8_t seconds)
 {
 }
 
-void Item::modifyPoints(uint8_t& points) const
+void Item::modifyPoints(uint16_t& points) const
 {
 	points += m_Points;
 }
