@@ -103,7 +103,7 @@ void Console::clearConsole(short startRow, short endRow)
 
     short consoleWidth = getConsoleWidth();
 
-    for (int row = startRow; row <= endRow; ++row) 
+    for (short row = startRow; row <= endRow; ++row)
     {
         COORD coord = { 0, static_cast<SHORT>(row) };
 
@@ -143,10 +143,8 @@ void Console::removeMaximizedBox()
 
 short Console::getConsoleWidth()
 {
-    short columns;
-
     GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &csbi);
-    columns = csbi.srWindow.Right - csbi.srWindow.Left + 1;
+    short columns = csbi.srWindow.Right - csbi.srWindow.Left + 1;
 
     return columns;
 }
@@ -205,8 +203,9 @@ unsigned char Console::getAtomicPressedKey(std::atomic<bool>& flag)
 
         Sleep(DEF_SLEEP_TIME);
     }
-}
 
+    return 0;
+}
 
 void Console::printSymbol(char symbol, short times)
 {
@@ -242,8 +241,7 @@ void Console::printString(const char* string, bool addNewLine)
     if (addNewLine)
     {
         std::cout << Symbols::ce_NewLine;
-    }
-    
+    }    
 }
 
 void Console::printColoredLine(const char* line, WORD color)

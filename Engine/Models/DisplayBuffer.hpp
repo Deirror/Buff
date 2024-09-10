@@ -1,7 +1,8 @@
 #pragma once
+#include "Buffer2D.hpp"
+//-----------------------------------
 #include "../Source/ConsoleHandler.h"
 #include "../Source/winsize.h"
-#include "Buffer2D.hpp"
 
 template <const size_t width, const size_t height>
 class DisplayBuffer : public Buffer2D<char, width, height>

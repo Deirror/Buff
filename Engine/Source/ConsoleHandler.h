@@ -3,9 +3,7 @@
 #include <atomic>
 
 #define INVALID_COORD {-1, -1}
-
 #define DEF_FOREGOUND_COLOR 0xF
-
 #define DEF_SLEEP_TIME 50
 
 namespace Console
