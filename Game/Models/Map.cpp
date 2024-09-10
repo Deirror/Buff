@@ -237,6 +237,11 @@ Dimension Map::getDimensions() const
 	return m_Dimensions;
 }
 
+const polymorphic_ctr<Item>& Map::getItems() const
+{
+	return m_Items;
+}
+
 size_t Map::getItemsCount() const
 {
 	return m_Items.size();

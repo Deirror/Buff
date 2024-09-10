@@ -523,20 +523,32 @@ void GameManager::updateGame(Game& game, uint8_t key)
 		if (!game.hasCollectedItem(updatedCoords))
 		{
 			polymorphic_ptr<Item> item = map.getItem(updatedCoords);
-
-			game.updateGameStats(item);
 			
-			/*//Soon Teleport Item, though this code works it isn't reusable..must be patternized
-			if (dynamic_cast<TeleportItem*>(item.get()))
+			ItemType itemType = getItemType(item);
+
+			switch (itemType)
 			{
-				TeleportItem* proba = dynamic_cast<TeleportItem*>(item.get());
-				proba->teleportPlayer(updatedCoords);
+			case ItemType::NormalItem:
+			case ItemType::TimyItem:
+			{
+				game.updateGameStats(item);
+				game.addCollectedItemCoords(item->getCoords());
+
+				GameInterface::printStats(game);
+				break;
 			}
-			*/
-
-			game.addCollectedItemCoords(item->getCoords());
-
-			GameInterface::printStats(game);
+			case ItemType::TrollItem:
+			{
+				game.updateGameStats(item);
+				GameInterface::printStats(game);
+			}
+			case ItemType::TeleportItem:
+			{
+				TeleportItem* teleportItem = dynamic_cast<TeleportItem*>(item.get());
+				teleportItem->teleportPlayer(updatedCoords);
+				break;
+			}
+			}
 		}
 	}
 	case MapSymbolType::WhiteSpace:

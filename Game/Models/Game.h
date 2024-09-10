@@ -36,6 +36,8 @@ public:
 	void updateGameStats(polymorphic_ptr<Item> item);
 
 private:
+	void calculateUncollectableItemsCount();
+
 	Map m_Map;
 
 	Timer m_PlayedTime;
@@ -46,4 +48,5 @@ private:
 	uint16_t m_Points = NULL;
 
 	std::vector<Coord> m_CollectedItemsCoords;
+	uint8_t m_UncollectableItems = NULL;
 };

@@ -43,13 +43,6 @@ inline void polymorphic_ptr<T>::copyFrom(const polymorphic_ptr<T>& other)
 	m_Ptr = other.m_Ptr->clone();
 }
 
-
-template<class T>
-inline void polymorphic_ptr<T>::copyFrom(const polymorphic_ptr<T>& other)
-{
-	m_Ptr = other.m_Ptr->clone();
-}
-
 template<class T>
 inline void polymorphic_ptr<T>::moveFrom(polymorphic_ptr<T>&& other)
 {

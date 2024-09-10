@@ -47,6 +47,7 @@ public:
 	void setDimensions(Dimension dimension);
 	Dimension getDimensions() const;
 
+	const polymorphic_ctr<Item>& getItems() const;
 	size_t getItemsCount() const;
 
 private:

@@ -3,6 +3,8 @@
 #include "../../Models/ItemValidities/AlphabeticOnlyItems.h"
 #include "../../Models/ItemValidities/RandomOnlyItems.h"
 #include "../../Models/MapObjects/Items/TeleportItem.h"
+#include "../../Models/MapObjects/Items/TrollItem.h"
+#include "../../Models/MapObjects/Items/TimyItem.h"
 
 namespace MapDimensions
 {
@@ -85,7 +87,8 @@ Map ImposterBuild::buildBAK()
 
     map.addItem(make_polymorphic<Item>(3, 3, 'z', 12, 12));
     map.addItem(make_polymorphic<Item>(5, 12, 'a', 13, 13));
-    map.addItem(make_polymorphic<TeleportItem>(11, 12, 13, 12, 14));
+    map.addItem(make_polymorphic<TeleportItem>(11, 12, 12, 14));
+    map.addItem(make_polymorphic<TrollItem>(17, 19, 't', 10, 10));
 
     return map;
 }

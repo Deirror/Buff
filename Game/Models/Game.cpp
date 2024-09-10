@@ -3,7 +3,10 @@
 Game::Game(const Map& map) 
     : m_Map(map), 
       m_CurrentPlayer(map.getPlayer()), 
-      m_LeftTime(map.getStartSeconds()) {}
+      m_LeftTime(map.getStartSeconds()) 
+{
+    calculateUncollectableItemsCount();
+}
 
 const Map& Game::getMap() const
 {
@@ -42,7 +45,7 @@ bool Game::isEnded() const
 
 bool Game::areAllItemsCollected() const
 {
-    return (m_CollectedItemsCoords.size() == m_Map.getItemsCount());
+    return (m_CollectedItemsCoords.size() == (m_Map.getItemsCount() - m_UncollectableItems));
 }
 
 bool Game::isTimeOut() const
@@ -102,4 +105,17 @@ void Game::updateGameStats(polymorphic_ptr<Item> item)
 
     item->modifyPoints(m_Points);
     item->modifySeconds(m_LeftTime);
+}
+
+void Game::calculateUncollectableItemsCount()
+{
+    const polymorphic_ctr<Item>& items = m_Map.getItems();
+
+    for (const auto& item : items)
+    {
+        if (!item->isCollectable())
+        {
+            m_UncollectableItems++;
+        }
+    }
 }
