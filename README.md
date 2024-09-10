@@ -1,2 +1,2 @@
-# Buff - (Windows Specific Game)
+# Buff
 //TO DO
