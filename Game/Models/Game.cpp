@@ -18,9 +18,14 @@ void Game::startTimer()
     m_PlayedTime.start();
 }
 
-uint8_t Game::getPlayedTime() const
+void Game::endTimer()
 {
-    return m_PlayedTime.getDuration();
+    m_PlayedTime.report();
+}
+
+const Timer& Game::getPlayedTime() const
+{
+    return m_PlayedTime;
 }
 
 Player Game::getCurrentPlayer() const
@@ -58,7 +63,7 @@ void Game::decrementLeftTime()
     m_LeftTime--;
 }
 
-void Game::updateCurrentPlayer(Coord coords)
+void Game::updateCurrentPlayerCoords(Coord coords)
 {
     m_CurrentPlayer.setCoords(coords);
 }
@@ -78,22 +83,22 @@ void Game::addCollectedItemCoords(Coord coords)
     m_CollectedItemsCoords.push_back(coords);
 }
 
-uint8_t Game::getCollectedItems() const
+uint8_t Game::getCollectedItemsCount() const
 {
     return m_CollectedItemsCoords.size();
 }
 
-bool Game::hasCollectedItem(Coord coords) const
+bool Game::hasCollectedItemCoords(Coord coords) const
 {
     for (const auto itemCoords : m_CollectedItemsCoords)
     {
         if (itemCoords == coords)
         {
-            return true;
+            return TRUE;
         }
     }
 
-    return false;
+    return FALSE;
 }
 
 void Game::updateGameStats(polymorphic_ptr<Item> item)

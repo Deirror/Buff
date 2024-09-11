@@ -10,8 +10,9 @@ public:
 	const Map& getMap() const;
 
 	void startTimer();
+	void endTimer();
 
-	uint8_t getPlayedTime() const;
+	const Timer& getPlayedTime() const;
 	Player  getCurrentPlayer() const;
 
 	uint8_t  getLeftTime() const;
@@ -23,16 +24,16 @@ public:
 	bool isTimeOut() const;
 
 	void decrementLeftTime();
-	void updateCurrentPlayer(Coord coords);
+	void updateCurrentPlayerCoords(Coord coords);
 
 	void setPoints(uint16_t  points);
 	void setLeftTime(uint8_t leftTime);
 
 	void addCollectedItemCoords(Coord coords);
 
-	uint8_t getCollectedItems() const;
+	uint8_t getCollectedItemsCount() const;
 
-	bool hasCollectedItem(Coord coords) const;
+	bool hasCollectedItemCoords(Coord coords) const;
 	void updateGameStats(polymorphic_ptr<Item> item);
 
 private:
@@ -40,13 +41,12 @@ private:
 
 	Map m_Map;
 
-	Timer m_PlayedTime;
-
 	Player m_CurrentPlayer;
-
-	uint8_t  m_LeftTime = NULL;
-	uint16_t m_Points = NULL;
+	mutable Timer m_PlayedTime;
 
 	std::vector<Coord> m_CollectedItemsCoords;
 	uint8_t m_UncollectableItems = NULL;
+
+	uint8_t  m_LeftTime = NULL;
+	uint16_t m_Points = NULL;
 };

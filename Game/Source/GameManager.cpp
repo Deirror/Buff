@@ -1,17 +1,17 @@
 #include "GameManager.h"
-//--------------------------------------------------
+//-----------------------------------------------
 #include "../Models/MapObjects/Items/ItemTypes.h"
-//--------------------------------------------------
+//-----------------------------------------------
 #include "../Builds/MapFactory.h"
 #include "../Builds/MapCounts.h"
 #include "../Builds/GamePrints.h"
 #include "../Builds/MapNames.h"
+//-------------------------------
+#include <Models/SecondChecker.h>
 //---------------------------------
 #include <Source/RandomGenerator.h>
 #include <Source/addbutmcr.h>
-//-------------------------------
-#include <Models/SecondChecker.h>
-//-------------------------------
+//---------------------------
 #include <string>
 #include <thread>
 #include <atomic>
@@ -354,14 +354,14 @@ void GameManager::GameInterface::printStats(const Game& game)
 
 		std::string points;
 
-		if (0 >= game.getPoints() && game.getPoints() <= 9)
+		if (0 <= game.getPoints() && game.getPoints() <= 9)
 		{
 			points += '0';
 		}
 
 		points += std::to_string(game.getPoints());
 
-		std::string playedTime = ' ' + std::to_string(game.getPlayedTime()) + "s  ";
+		std::string playedTime = ' ' + std::to_string(game.getPlayedTime().getCurrentDuration()) + "s  ";
 
 		Console::printInThreeAlignments(leftTime.c_str(), points.c_str(), playedTime.c_str(), false);
 	}
@@ -381,7 +381,7 @@ void GameManager::GameInterface::printScore(const Game& game)
 	Console::printInThreeAlignments(" |Collected Items|","|Points|","|Played Time| ", false);
 	Console::printString("");
 
-	std::string collectedItems = "  " + std::to_string(game.getCollectedItems());
+	std::string collectedItems = "  " + std::to_string(game.getCollectedItemsCount());
 
 	std::string points;
 
@@ -392,7 +392,7 @@ void GameManager::GameInterface::printScore(const Game& game)
 
 	points += std::to_string(game.getPoints());
 
-	std::string playedTime = ' ' + std::to_string(game.getPlayedTime()) + "s  ";
+	std::string playedTime = ' ' + std::to_string(game.getPlayedTime().getLastReportDuration()) + "s  ";
 
 	Console::printInThreeAlignments(collectedItems.c_str(), points.c_str(), playedTime.c_str(), false);
 	Console::printString("");
@@ -490,6 +490,8 @@ void GameManager::playGame(Game& game)
 		updateGame(game, key);
 	}
 
+	game.endTimer();
+
 	checkEndConditions.join();
 	modifyDisplayStats.join();
 }
@@ -520,7 +522,7 @@ void GameManager::updateGame(Game& game, uint8_t key)
 	}
 	case MapSymbolType::Item:
 	{
-		if (!game.hasCollectedItem(updatedCoords))
+		if (!game.hasCollectedItemCoords(updatedCoords))
 		{
 			polymorphic_ptr<Item> item = map.getItem(updatedCoords);
 			
@@ -558,7 +560,7 @@ void GameManager::updateGame(Game& game, uint8_t key)
 			std::lock_guard<std::mutex> lockThread(Multithread::coutMutex);
 			GameInterface::movePlayer(updatedCoords, game.getCurrentPlayer().getCoords(), map.getDimensions());
 		}
-		game.updateCurrentPlayer(updatedCoords);
+		game.updateCurrentPlayerCoords(updatedCoords);
 		break;
 	}
 	}
@@ -711,7 +713,7 @@ void GameManager::GameMenu::printColoredLines(bool hasText)
 	if (hasText)
 	{
 		Console::moveCursor(0, GM_LAST_ROW);
-		Console::printInThreeAlignments(" @Made by Deirror@", "Version 1.0", "Press H for help ",
+		Console::printInThreeAlignments(" @Made by Deirror@", "Version 1.3", "Press H for help ",
 										false, GM_CONSOLE_BACKGROUND_COLOR | GM_FOREGROUND_DEF_COLOR);
 	}
 	else
