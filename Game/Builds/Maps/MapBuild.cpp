@@ -1,7 +1,8 @@
 #include "MapBuild.h"
-//-----------------------
+//----------------------------------------------------------
 #include "../../Models/ItemValidities/AlphabeticOnlyItems.h"
 #include "../../Models/ItemValidities/RandomOnlyItems.h"
+//------------------------------------------------------
 #include "../../Models/MapObjects/Items/TeleportItem.h"
 #include "../../Models/MapObjects/Items/RandomItem.h"
 #include "../../Models/MapObjects/Items/TrollItem.h"

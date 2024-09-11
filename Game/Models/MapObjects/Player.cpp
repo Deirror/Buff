@@ -1,4 +1,5 @@
 #include "Player.h"
+//----------------------------------
 #include "../../Builds/MapSymbols.h"
 
 Player::Player() : MapEntity(MapSymbols::Objects::ce_Player)

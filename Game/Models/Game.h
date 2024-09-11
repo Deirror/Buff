@@ -34,7 +34,7 @@ public:
 	uint8_t getCollectedItemsCount() const;
 
 	bool hasCollectedItemCoords(Coord coords) const;
-	void updateGameStats(polymorphic_ptr<Item> item);
+	void updateGameStats(const polymorphic_ptr<Item>& item);
 
 private:
 	void calculateUncollectableItemsCount();

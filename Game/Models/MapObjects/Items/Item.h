@@ -21,5 +21,3 @@ protected:
 
 	bool m_Collectable = true;
 };
-
-//classes TrollItem..

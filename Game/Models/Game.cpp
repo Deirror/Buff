@@ -101,7 +101,7 @@ bool Game::hasCollectedItemCoords(Coord coords) const
     return FALSE;
 }
 
-void Game::updateGameStats(polymorphic_ptr<Item> item)
+void Game::updateGameStats(const polymorphic_ptr<Item>& item)
 {
     if (!item)
     {

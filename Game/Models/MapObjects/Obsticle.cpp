@@ -1,4 +1,5 @@
 #include "Obsticle.h"
+//----------------------------------
 #include "../../Builds/MapSymbols.h"
 
 Obsticle::Obsticle() : MapEntity(MapSymbols::Objects::ce_Obsticle)
