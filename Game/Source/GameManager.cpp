@@ -398,7 +398,9 @@ void GameManager::GameInterface::printScore(const Game& game)
 	Console::printString("");
 	Console::printSymbol('-', Console::getConsoleWidth());
 
+	Console::printEmptyLine(GM_CONSOLE_BACKGROUND_COLOR);
 	Console::printLine("PRESS ENTER TO CONTINUE", Console::Alignment::Center);
+	Console::printEmptyLine(GM_CONSOLE_BACKGROUND_COLOR);
 
 	while (TRUE)
 	{
