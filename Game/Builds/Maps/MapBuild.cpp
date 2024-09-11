@@ -1,5 +1,6 @@
 #include "MapBuild.h"
-//----------------------------------------------------------
+//--------------------------------------------------------------
+#include "../../Models/ItemValidities/AlphabeticExtentedItems.h"
 #include "../../Models/ItemValidities/AlphabeticOnlyItems.h"
 #include "../../Models/ItemValidities/RandomOnlyItems.h"
 //------------------------------------------------------
@@ -7,6 +8,8 @@
 #include "../../Models/MapObjects/Items/RandomItem.h"
 #include "../../Models/MapObjects/Items/TrollItem.h"
 #include "../../Models/MapObjects/Items/TimyItem.h"
+//-------------------------------------------------
+#include <Source/RandomGenerator.h>
 
 namespace MapDimensions
 {
@@ -34,14 +37,30 @@ using namespace MapDimensions;
 
 Map AlphabeticBuild::buildAzbuki()
 {
-    Map map(AlphabeticDimensions::s_AzbukiDimensions, 100, make_polymorphic<AlphabeticOnlyItems>());
+    Map map(AlphabeticDimensions::s_AzbukiDimensions, 100, make_polymorphic<AlphabeticExtentedItems>());
 
-    map.setPlayer({ 24, 13 });
+    map.setPlayer({ 24, 15 });
 
     #include "ObsticlesBuilds/AzbukiObsticles.txt"
 
-    map.addItem(make_polymorphic<Item>(24, 10, 'z', 5, 10));
-    map.addItem(make_polymorphic<Item>(23, 10, 'a', 7, 10));
+    if (RandomGenerator::generateNext(2))
+    {
+        map.addItem(make_polymorphic<Item>(21, 20, 'a', 0, 'a' - 'a'));
+        map.addItem(make_polymorphic<TrollItem>(21, 16, 'a', 24, 15));
+    }
+    else
+    {
+        map.addItem(make_polymorphic<TrollItem>(21, 20, 'a', 24, 15));
+        map.addItem(make_polymorphic<Item>(21, 16, 'a', 0, 'a' - 'a'));
+    }
+
+    map.addItem(make_polymorphic<Item>(1, 1, 'z' , 'z' - 'a', 5));
+    map.addItem(make_polymorphic<Item>(14, 2, 'b', 'b' - 'a', 4));
+    map.addItem(make_polymorphic<Item>(22, 4, 'u', 'u' - 'a', 4));
+    map.addItem(make_polymorphic<Item>(28, 4, 'k', 'k' - 'a', 4));
+    map.addItem(make_polymorphic<Item>(34, 4, 'i', 'i' - 'a', 19));
+
+    map.addItem(make_polymorphic<TeleportItem>(41, 3, 23, 18));
 
     return map;
 }

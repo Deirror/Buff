@@ -156,6 +156,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Models\ItemValidities\AlphabeticExtentedItems.cpp" />
     <ClCompile Include="Models\MapObjects\Items\ItemTypes.cpp" />
     <ClCompile Include="Models\ItemValidities\AlphabeticOnlyItems.cpp" />
     <ClCompile Include="Models\ItemValidities\AcceptAllItems.cpp" />
@@ -179,6 +180,7 @@
     <ClCompile Include="Models\MapObjects\Items\TrollItem.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Models\ItemValidities\AlphabeticExtentedItems.h" />
     <ClInclude Include="Builds\MapSymbols.h" />
     <ClInclude Include="Models\MapObjects\Items\ItemTypes.h" />
     <ClInclude Include="Models\ItemValidities\AlphabeticOnlyItems.h" />

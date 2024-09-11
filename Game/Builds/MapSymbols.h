@@ -37,6 +37,11 @@ namespace MapSymbols
 		{
 			constexpr char ce_TeleportItem = '~';
 			constexpr char ce_RandomItem = '?';
+
+			inline bool isExtentedItem(char itemSymbol)
+			{
+				return (itemSymbol == ce_TeleportItem || itemSymbol == ce_RandomItem);
+			}
 		}
 	}
 }
