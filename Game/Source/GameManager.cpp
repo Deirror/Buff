@@ -303,22 +303,22 @@ Coord GameManager::GameInterface::updateCoords(Coord coords, uint8_t key)
 	if (PlayKeys::isPressedA(key))
 	{
 		updatedCoord.X--;
-		Sleep(45);
+		Sleep(50);
 	}
 	else if (PlayKeys::isPressedS(key))
 	{
 		updatedCoord.Y--;
-		Sleep(110);
+		Sleep(120);
 	}
 	else if (PlayKeys::isPressedD(key))
 	{
 		updatedCoord.X++;
-		Sleep(45);
+		Sleep(50);
 	}
 	else if (PlayKeys::isPressedW(key))
 	{
 		updatedCoord.Y++;
-		Sleep(110);
+		Sleep(120);
 	}
 
 	return updatedCoord;
