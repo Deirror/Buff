@@ -191,7 +191,7 @@ void GameManager::setConsoleProperties()
 	Console::changeVisibilityScrollbars(FALSE);
 
 	Console::disableQuickEditMode();
-	Console::setConsoleFont(L"Cascadia Mono SemiBold", 22);
+	Console::setConsoleFont(L"Cascadia Mono SemiBold", 26);
 
 	Console::setConsoleSize(GM_CONSOLE_WIDTH, GM_CONSOLE_HEIGHT);
 }
@@ -242,13 +242,13 @@ void GameManager::processingScreen()
 
 void GameManager::GameInterface::displayGameInterface(Game& game)
 {
-	Console::setConsoleSize(GM_CONSOLE_WIDTH, GM_PLAYABLE_CONSOLE_HEIGHT);
-
 	const Map& map = game.getMap();
+	Dimension mapDimensions = map.getDimensions();
+
+	Console::setConsoleSize(GM_CONSOLE_WIDTH, mapDimensions.Height + 3);
 
 	map.print();
 
-	Dimension mapDimensions = map.getDimensions();
 	printColoredPlayer(game.getCurrentPlayer(), mapDimensions);
 
 	Console::moveCursor(0, mapDimensions.Height);
