@@ -200,8 +200,6 @@ unsigned char Console::getAtomicPressedKey(std::atomic<bool>& flag)
         {
             return _getch();
         }
-
-        Sleep(DEF_SLEEP_TIME);
     }
 
     return 0;

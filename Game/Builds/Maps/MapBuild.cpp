@@ -37,13 +37,15 @@ using namespace MapDimensions;
 
 Map AlphabeticBuild::buildAzbuki()
 {
-    Map map(AlphabeticDimensions::s_AzbukiDimensions, 100, make_polymorphic<AlphabeticExtentedItems>());
+    Map map(AlphabeticDimensions::s_AzbukiDimensions, 26, make_polymorphic<AlphabeticExtentedItems>());
 
     map.setPlayer({ 24, 15 });
 
     #include "ObsticlesBuilds/AzbukiObsticles.txt"
 
-    if (RandomGenerator::generateNext(2))
+    bool randomChoice = RandomGenerator::generateNext(2);
+
+    if (randomChoice)
     {
         map.addItem(make_polymorphic<Item>(21, 20, 'a', 0, 'a' - 'a'));
         map.addItem(make_polymorphic<TrollItem>(21, 16, 'a', 24, 15));
@@ -58,9 +60,35 @@ Map AlphabeticBuild::buildAzbuki()
     map.addItem(make_polymorphic<Item>(14, 2, 'b', 'b' - 'a', 4));
     map.addItem(make_polymorphic<Item>(22, 4, 'u', 'u' - 'a', 4));
     map.addItem(make_polymorphic<Item>(28, 4, 'k', 'k' - 'a', 4));
-    map.addItem(make_polymorphic<Item>(34, 4, 'i', 'i' - 'a', 19));
+    map.addItem(make_polymorphic<Item>(34, 4, 'i', 'i' - 'a', 7));
 
     map.addItem(make_polymorphic<TeleportItem>(41, 3, 23, 18));
+
+    map.addItem(make_polymorphic<Item>(36, 9, 'c', 'c' - 'a', 5));
+    map.addItem(make_polymorphic<Item>(44, 7, 'd', 'd' - 'a', 10));
+    map.addItem(make_polymorphic<Item>(39, 9, 'e', 'e' - 'a', 12));
+
+    map.addItem(make_polymorphic<Item>(43, 24, 'f', 'f' - 'a', 2));
+    map.addItem(make_polymorphic<Item>(11, 19, 'g', 'g' - 'a', 11));
+    map.addItem(make_polymorphic<Item>(6, 13, 'h', 'h' - 'a', 15));
+    map.addItem(make_polymorphic<Item>(12, 13, 'j', 'j' - 'a', 7));
+    map.addItem(make_polymorphic<Item>(5, 17, 'l', 'l' - 'a', 10));
+
+    map.addItem(make_polymorphic<Item>(7, 10, 'm', 'm' - 'a', 5));
+    map.addItem(make_polymorphic<Item>(14, 10, 'n', 'n' - 'a', 5));
+    map.addItem(make_polymorphic<Item>(41, 13, 'o', 'o' - 'a', 7));
+    map.addItem(make_polymorphic<Item>(43, 16, 'p', 'p' - 'a', 11));
+
+    map.addItem(make_polymorphic<Item>(43, 18, 's', 55, 2));
+    map.addItem(make_polymorphic<TimyItem>(44, 19, 't', 95));
+    map.addItem(make_polymorphic<Item>(6, 22, 'r', 'r' - 'a', 20));
+
+    map.addItem(make_polymorphic<Item>(21, 25, 'v', 'v' - 'a', 21));
+    map.addItem(make_polymorphic<Item>(33, 23, 'q', 'q' - 'a', 13));
+    map.addItem(make_polymorphic<Item>(32, 18, 'y', 'y' - 'a', 7));
+    map.addItem(make_polymorphic<Item>(37, 20, 'x', 'x' - 'a', 5));
+
+    map.addItem(make_polymorphic<Item>(46, 5, 'w', 'w' - 'a', 5));
 
     return map;
 }
