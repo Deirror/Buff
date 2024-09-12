@@ -16,7 +16,7 @@ namespace MapDimensions
     namespace AlphabeticDimensions
     {
         static const Dimension s_AzbukiDimensions = { 48, 28 };
-        static const Dimension s_XidiomasDimensions = { 34, 20 };
+        static const Dimension s_XidiomasDimensions = { 27, 15 };
         static const Dimension s_FAKTDimensions = { 58, 30 };
     }
 
@@ -68,7 +68,7 @@ Map AlphabeticBuild::buildAzbuki()
     map.addItem(make_polymorphic<Item>(44, 7, 'd', 'd' - 'a', 10));
     map.addItem(make_polymorphic<Item>(39, 9, 'e', 'e' - 'a', 12));
 
-    map.addItem(make_polymorphic<Item>(43, 24, 'f', 'f' - 'a', 2));
+    map.addItem(make_polymorphic<Item>(43, 24, 'f', 'f' - 'a', 3));
     map.addItem(make_polymorphic<Item>(11, 19, 'g', 'g' - 'a', 11));
     map.addItem(make_polymorphic<Item>(6, 13, 'h', 'h' - 'a', 15));
     map.addItem(make_polymorphic<Item>(12, 13, 'j', 'j' - 'a', 7));
@@ -95,7 +95,50 @@ Map AlphabeticBuild::buildAzbuki()
 
 Map AlphabeticBuild::buildXidiomas()
 {
-    Map map(AlphabeticDimensions::s_XidiomasDimensions, 7, make_polymorphic<AlphabeticOnlyItems>());
+    Map map(AlphabeticDimensions::s_XidiomasDimensions, 7, make_polymorphic<AlphabeticExtentedItems>());
+
+    map.setPlayer({ 13, 7 });
+
+    #include "ObsticlesBuilds/XidiomasObsticles.txt"
+
+    map.addItem(make_polymorphic<TeleportItem>(13, 8, 13, 13));
+    map.addItem(make_polymorphic<TeleportItem>(12, 7, 1, 7));
+    map.addItem(make_polymorphic<TeleportItem>(13, 6, 13, 1));
+    map.addItem(make_polymorphic<TeleportItem>(14, 7, 25, 7));
+
+    map.addItem(make_polymorphic<TeleportItem>(13, 10, 13, 7));
+    map.addItem(make_polymorphic<TeleportItem>(8, 5, 13, 7));
+    map.addItem(make_polymorphic<TeleportItem>(13, 3, 13, 7));
+    map.addItem(make_polymorphic<TeleportItem>(18, 7, 13, 7));
+
+    map.addItem(make_polymorphic<TeleportItem>(25, 4, 25, 2));
+    map.addItem(make_polymorphic<TeleportItem>(25, 10, 25, 12));
+    map.addItem(make_polymorphic<TeleportItem>(22, 3, 21, 4));
+    map.addItem(make_polymorphic<TeleportItem>(22, 11, 21, 10));
+
+    map.addItem(make_polymorphic<Item>(11, 5, 'x', 5, 6));
+    map.addItem(make_polymorphic<Item>(15, 5, 'x', 7, 6));
+    map.addItem(make_polymorphic<Item>(8, 1, 'x', 1,  6));
+    map.addItem(make_polymorphic<Item>(18, 1, 'x', 4, 6));
+    map.addItem(make_polymorphic<Item>(3, 1, 'x', 10, 6));
+    map.addItem(make_polymorphic<Item>(23, 1, 'x', 10,6));
+
+    map.addItem(make_polymorphic<Item>(23, 4, 'x', 15, 6));
+    map.addItem(make_polymorphic<Item>(23, 10, 'x', 4, 6));
+    map.addItem(make_polymorphic<Item>(17, 6, 'x', 12, 6));
+    map.addItem(make_polymorphic<Item>(17, 8, 'x', 8, 6));
+
+    map.addItem(make_polymorphic<Item>(4, 13, 'x', 18, 8));
+    map.addItem(make_polymorphic<Item>(22, 13, 'x', 4, 8));
+    map.addItem(make_polymorphic<Item>(9, 11, 'x', 12, 8));
+    map.addItem(make_polymorphic<Item>(17, 11, 'x', 8, 8));
+
+    map.addItem(make_polymorphic<Item>(1, 12, 'x', 12, 6));
+    map.addItem(make_polymorphic<Item>(3, 9, 'x', 14, 7));
+    map.addItem(make_polymorphic<Item>(5, 6, 'x', 12, 8));
+    map.addItem(make_polymorphic<Item>(9, 8, 'x', 8, 12));
+    map.addItem(make_polymorphic<Item>(2, 4, 'x', 10, 10));
+    map.addItem(make_polymorphic<Item>(2, 2, 'x', 2, 14));
 
     return map;
 }
@@ -103,6 +146,7 @@ Map AlphabeticBuild::buildXidiomas()
 Map AlphabeticBuild::buildFAKT()
 {
     Map map(AlphabeticDimensions::s_FAKTDimensions, 7, make_polymorphic<AlphabeticOnlyItems>());
+
 
     return map;
 }
