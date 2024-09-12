@@ -17,7 +17,7 @@ namespace MapDimensions
     {
         static const Dimension s_AzbukiDimensions = { 48, 28 };
         static const Dimension s_XidiomasDimensions = { 27, 15 };
-        static const Dimension s_FAKTDimensions = { 58, 30 };
+        static const Dimension s_FAKTDimensions = { 49, 30 };
     }
 
     namespace RandomizerDimensions
@@ -145,7 +145,13 @@ Map AlphabeticBuild::buildXidiomas()
 
 Map AlphabeticBuild::buildFAKT()
 {
-    Map map(AlphabeticDimensions::s_FAKTDimensions, 7, make_polymorphic<AlphabeticOnlyItems>());
+    Map map(AlphabeticDimensions::s_FAKTDimensions, 69, make_polymorphic<AlphabeticExtentedItems>());
+
+    map.setPlayer({ 24, 1 });
+
+    #include "ObsticlesBuilds/FAKTObsticles.txt"
+
+    map.addItem(make_polymorphic<Item>(24, 4, 'x', 2, 14));
 
 
     return map;

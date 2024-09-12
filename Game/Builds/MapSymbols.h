@@ -29,7 +29,6 @@ namespace MapSymbols
 		{
 			return (itemSymbol != ce_Obsticle &&
 					itemSymbol != ce_Player &&
-					itemSymbol != ce_WhiteSpace &&
 					Borders::isNotItemSymbolBorder(itemSymbol));
 		}
 
@@ -40,7 +39,7 @@ namespace MapSymbols
 
 			inline bool isExtentedItem(char itemSymbol)
 			{
-				return (itemSymbol == ce_TeleportItem || itemSymbol == ce_RandomItem);
+				return (itemSymbol == ce_TeleportItem || itemSymbol == ce_RandomItem || itemSymbol == ce_WhiteSpace);
 			}
 		}
 	}

@@ -153,6 +153,7 @@
   <ItemGroup>
     <Text Include="Builds\Maps\ObsticlesBuilds\AzbukiObsticles.txt" />
     <Text Include="Builds\Maps\ObsticlesBuilds\XidiomasObsticles.txt" />
+    <Text Include="Builds\Maps\ObsticlesBuilds\FAKTObsticles.txt" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Game.rc">
