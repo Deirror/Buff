@@ -54,4 +54,6 @@ namespace GamePrints
 															 "//Press a number(1-2)" }};
 
 	static const DisplayBuffer<33, 6> s_PlayAgainScreen = { " ","Do you want to play again?"," ","Press Y or N" };
+
+	static const DisplayBuffer<34, 10> s_GameInterfaceHelp = { "/ ->Quick Game Interface Menu<- \\", " ", "A,S,D,W - Standart movement keys", "ESC - exit current game","R - restart current game"};
 }

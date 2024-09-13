@@ -21,6 +21,13 @@ namespace Multithread
 {
 	static std::mutex coutMutex;
 	static std::atomic endFlag(false);
+	static std::condition_variable conditionVariable;
+
+	namespace LoadingScreen
+	{
+		static std::atomic hasFinished(false);
+		static bool isFreezed(false);
+	}
 }
 
 namespace ConfirmKeys
@@ -111,6 +118,27 @@ namespace PlayKeys
 	}
 }
 
+namespace PlayTimeOptions
+{
+	static bool isPressedESC(uint8_t key)
+	{
+		return (key == VK_ESCAPE);
+	}
+	static bool isPressedR(uint8_t key)
+	{
+		return (key == VK_R || (key == VK_TO_LOWER(VK_R)));
+	}
+
+}
+
+namespace FreezeScreen
+{
+	static bool isPressedF(uint8_t key)
+	{
+		return (key == VK_F || (key == VK_TO_LOWER(VK_F)));
+	}
+}
+
 #define GM_CONSOLE_WIDTH  70
 #define GM_CONSOLE_HEIGHT 16
 
@@ -162,14 +190,29 @@ void GameManager::start()
 				continue;
 			}
 
-			std::thread load(loadingScreen);
-			Game game(createMap(mapVariant, mapBuild));					
-			load.join();
+			bool playAgain = false;
 
-			GameInterface::displayGameInterface(game);
-			playGame(game);
+			while (TRUE)
+			{
+				Console::setConsoleColor(DEF_FOREGOUND_COLOR);
 
-			if (checkGameEndingState(game))
+				std::thread load(loadingScreen);
+				Game game(createMap(mapVariant, mapBuild));
+				load.join();
+
+				GameInterface::displayGameInterface(game);
+
+				if (playGame(game))
+				{
+					Console::setConsoleSize(GM_CONSOLE_WIDTH, GM_CONSOLE_HEIGHT);
+					continue;
+				}
+
+				playAgain = checkGameEndingState(game);
+				break;
+			}
+
+			if (playAgain)
 			{
 				break;
 			}
@@ -198,44 +241,79 @@ void GameManager::setConsoleProperties()
 
 void GameManager::loadingScreen()
 {
+	Multithread::LoadingScreen::hasFinished = false;
+	Multithread::LoadingScreen::isFreezed = false;
+
+	std::thread freeze(&freezeLoadingScreen);
+
+	Console::clearConsole();
+	GameMenu::printColoredLines(false);
+
+	Console::printSymbol(Symbols::ce_NewLine, 3);
+	GamePrints::s_GameInterfaceHelp.displayContent(Console::Alignment::Center);
+
+	Console::moveCursor(0, GM_CONSOLE_HEIGHT - 3);
+
+	Console::printEmptyLine(GM_CONSOLE_BACKGROUND_COLOR);
+	Console::printLine("PRESS F TO FREEZE", Console::Alignment::Center);
+	Console::printEmptyLine(GM_CONSOLE_BACKGROUND_COLOR);
+
+	Console::moveCursor(0, 1);
+
+	for (int step = 0; step < 4; ++step) 
+	{
+		{
+			std::unique_lock<std::mutex> lock(Multithread::coutMutex);
+			Multithread::conditionVariable.wait(lock, [] { return !Multithread::LoadingScreen::isFreezed; });		
+		}
+
+		Console::clearConsole(1, 1);
+		Console::printLine(std::string( "loading" + std::string(step, '.') + std::string(3 - step, ' ')).c_str(), Console::Alignment::Center);
+		Sleep(400);
+	}
+
 	Console::clearConsole();
 
-	Console::printLine("loading   ", Console::Alignment::Center);
-	Sleep(300);
+	Multithread::LoadingScreen::hasFinished = true;
+	freeze.join(); 
+}
 
-	Console::clearConsole(GM_FIRST_ROW, GM_FIRST_ROW);
-	Console::printLine("loading.  ", Console::Alignment::Center);
-	Sleep(340);
+void GameManager::freezeLoadingScreen()
+{
+	while (!Multithread::LoadingScreen::hasFinished)
+	{
+		uint8_t key = Console::getAtomicPressedKey(Multithread::LoadingScreen::hasFinished);
 
-	Console::clearConsole(GM_FIRST_ROW, GM_FIRST_ROW);
-	Console::printLine("loading.. ", Console::Alignment::Center);
-	Sleep(400);
+		if (FreezeScreen::isPressedF(key))
+		{
+			{
+				std::unique_lock<std::mutex> lock(Multithread::coutMutex);
+				Multithread::LoadingScreen::isFreezed = !Multithread::LoadingScreen::isFreezed;
+				Console::clearConsole(1, 1);
+				Console::printLine("freezed", Console::Alignment::Center);
+			}
+			Multithread::conditionVariable.notify_one();
+		}
 
-	Console::clearConsole(GM_FIRST_ROW, GM_FIRST_ROW);
-	Console::printLine("loading...", Console::Alignment::Center);
-	Sleep(200);
-
-	Console::clearConsole(GM_FIRST_ROW, GM_FIRST_ROW);
+		Sleep(DEF_SLEEP_TIME);
+	}
 }
 
 void GameManager::processingScreen()
 {
 	Console::clearConsole();
 
-	Console::printLine("processing   ", Console::Alignment::Center);
-	Sleep(200);
+	for (int step = 0; step < 4; ++step)
+	{
+		{
+			std::unique_lock<std::mutex> lock(Multithread::coutMutex);
+			Multithread::conditionVariable.wait(lock, [] { return !Multithread::LoadingScreen::isFreezed; });
+		}
 
-	Console::clearConsole(GM_FIRST_ROW, GM_FIRST_ROW);
-	Console::printLine("processing.  ", Console::Alignment::Center);
-	Sleep(200);
-
-	Console::clearConsole(GM_FIRST_ROW, GM_FIRST_ROW);
-	Console::printLine("processing.. ", Console::Alignment::Center);
-	Sleep(300);
-
-	Console::clearConsole(GM_FIRST_ROW, GM_FIRST_ROW);
-	Console::printLine("processing...", Console::Alignment::Center);
-	Sleep(100);
+		Console::clearConsole(1, 1);
+		Console::printLine(std::string("processing" + std::string(step, '.') + std::string(3 - step, ' ')).c_str(), Console::Alignment::Center);
+		Sleep(200);
+	}
 
 	Console::clearConsole(GM_FIRST_ROW, GM_FIRST_ROW);
 }
@@ -283,6 +361,23 @@ void GameManager::GameInterface::printColoredPlayer(Player player, Dimension map
 	Console::setConsoleColor(GM_CONSOLE_BACKGROUND_COLOR);
 	Console::printSymbolAt(consoleCoords.X, consoleCoords.Y, player.getSymbol());
 	Console::setConsoleColor(GM_FOREGROUND_DEF_COLOR);
+}
+
+void GameManager::GameInterface::printTimeOutAnimation(const Game& game)
+{
+	const Map& map = game.getMap();
+	Coord lastCoords = game.getCurrentPlayer().getCoords();
+	Coord consoleCoords = GameInterface::mapCoordsToConsoleCoords(lastCoords, map.getDimensions());
+	{
+		std::lock_guard<std::mutex> lockThread(Multithread::coutMutex);
+		for (char times = 0; times < 3; times++)
+		{
+			GameInterface::movePlayer(lastCoords, game.getCurrentPlayer().getCoords(), map.getDimensions());
+			Sleep(200);
+			Console::printSymbolAt(consoleCoords.X, consoleCoords.Y, ' ');
+			Sleep(200);
+		}
+	}
 }
 
 Coord GameManager::GameInterface::mapCoordsToConsoleCoords(Coord mapCoords, Dimension mapDimensions)
@@ -398,6 +493,8 @@ void GameManager::GameInterface::printScore(const Game& game)
 	Console::printString("");
 	Console::printSymbol('-', Console::getConsoleWidth());
 
+	Console::moveCursor(0, GM_CONSOLE_HEIGHT - 3);
+
 	Console::printEmptyLine(GM_CONSOLE_BACKGROUND_COLOR);
 	Console::printLine("PRESS ENTER TO CONTINUE", Console::Alignment::Center);
 	Console::printEmptyLine(GM_CONSOLE_BACKGROUND_COLOR);
@@ -419,7 +516,7 @@ uint8_t GameManager::getMovementKey()
 	{
 		uint8_t key = Console::getAtomicPressedKey(Multithread::endFlag);
 
-		if (PlayKeys::isPlayKey(key))
+		if (PlayKeys::isPlayKey(key) || PlayTimeOptions::isPressedESC(key) || PlayTimeOptions::isPressedR(key))
 		{
 			return key;
 		}
@@ -473,12 +570,14 @@ bool GameManager::GameMenu::checkPlayAgain()
 	return checkYoNAnswer();
 }
 
-void GameManager::playGame(Game& game)
+bool GameManager::playGame(Game& game)
 {
 	Multithread::endFlag = false;
 
 	std::thread modifyDisplayStats(&GameInterface::updateStats, std::ref(game));
 	std::thread checkEndConditions(&trackLeftTime, std::ref(game));
+
+	bool restartGame = false;
 
 	while (!Multithread::endFlag)
 	{
@@ -488,6 +587,17 @@ void GameManager::playGame(Game& game)
 		{ 
 			break; 
 		}
+		else if (PlayTimeOptions::isPressedESC(key))
+		{
+			game.setLeftTime(0);
+			break;
+		}
+		else if (PlayTimeOptions::isPressedR(key))
+		{
+			game.setLeftTime(0);
+			restartGame = true;
+			break;
+		}
 
 		updateGame(game, key);
 	}
@@ -496,6 +606,13 @@ void GameManager::playGame(Game& game)
 
 	checkEndConditions.join();
 	modifyDisplayStats.join();
+
+	if (game.isTimeOut())
+	{
+		GameInterface::printTimeOutAnimation(game);
+	}
+
+	return restartGame;
 }
 
 void GameManager::trackLeftTime(Game& game)
@@ -556,6 +673,7 @@ void GameManager::updateGame(Game& game, uint8_t key)
 			case ItemType::DeathItem:
 			{
 				game.updateGameStats(item);
+				Multithread::endFlag = true;
 				break;
 			}
 			default:

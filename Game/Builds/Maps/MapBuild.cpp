@@ -7,7 +7,9 @@
 #include "../../Models/MapObjects/Items/TeleportItem.h"
 #include "../../Models/MapObjects/Items/RandomItem.h"
 #include "../../Models/MapObjects/Items/TrollItem.h"
+#include "../../Models/MapObjects/Items/DeathItem.h"
 #include "../../Models/MapObjects/Items/TimyItem.h"
+#include "../../Models/MapObjects/Items/NullItem.h"
 //-------------------------------------------------
 #include <Source/RandomGenerator.h>
 
@@ -22,7 +24,7 @@ namespace MapDimensions
 
     namespace RandomizerDimensions
     {
-        static const Dimension s_ThePitDimensions = { 56, 28 };
+        static const Dimension s_ThePitDimensions = { 40, 28 };
         static const Dimension s_BlocksmcDimensions = { 30, 15 };
     }
 
@@ -145,14 +147,60 @@ Map AlphabeticBuild::buildXidiomas()
 
 Map AlphabeticBuild::buildFAKT()
 {
-    Map map(AlphabeticDimensions::s_FAKTDimensions, 69, make_polymorphic<AlphabeticExtentedItems>());
+    Map map(AlphabeticDimensions::s_FAKTDimensions, 23, make_polymorphic<AlphabeticExtentedItems>());
 
     map.setPlayer({ 24, 1 });
 
     #include "ObsticlesBuilds/FAKTObsticles.txt"
 
-    map.addItem(make_polymorphic<Item>(24, 4, 'x', 2, 14));
+    const char deathSymbol = 'd';
 
+    map.addItem(make_polymorphic<NullItem>(43, 24, 'A', false));
+    map.addItem(make_polymorphic<NullItem>(44, 24, 'n', false));
+    map.addItem(make_polymorphic<NullItem>(45, 24, 'd', false));
+    map.addItem(make_polymorphic<NullItem>(46, 24, 'i', false));
+
+    map.addItem(make_polymorphic<Item>(47, 20, 'F', 15, 15));
+    map.addItem(make_polymorphic<DeathItem>(44, 20, deathSymbol));
+    map.addItem(make_polymorphic<DeathItem>(44, 21, deathSymbol));
+
+    map.addItem(make_polymorphic<NullItem>(42, 21, 'c', false));
+
+    map.addItem(make_polymorphic<DeathItem>(47, 22, deathSymbol));
+    map.addItem(make_polymorphic<DeathItem>(43, 23, deathSymbol));
+
+    map.addItem(make_polymorphic<DeathItem>(47, 24, deathSymbol));
+    map.addItem(make_polymorphic<DeathItem>(46, 23, deathSymbol));
+
+    map.addItem(make_polymorphic<NullItem>(47, 27, 'l', false));
+    map.addItem(make_polymorphic<NullItem>(46, 27, 'o', false));
+    map.addItem(make_polymorphic<NullItem>(45, 27, 't', false));
+    map.addItem(make_polymorphic<NullItem>(44, 27, 's', false));
+
+    map.addItem(make_polymorphic<DeathItem>(37, 21, deathSymbol));
+    map.addItem(make_polymorphic<DeathItem>(36, 21, deathSymbol));
+    map.addItem(make_polymorphic<DeathItem>(35, 21, deathSymbol));
+    map.addItem(make_polymorphic<DeathItem>(34, 21, deathSymbol));
+    map.addItem(make_polymorphic<DeathItem>(33, 21, deathSymbol));
+    map.addItem(make_polymorphic<DeathItem>(31, 21, deathSymbol));
+
+    map.addItem(make_polymorphic<DeathItem>(33, 22, deathSymbol));
+
+    map.addItem(make_polymorphic<DeathItem>(31, 20, deathSymbol));
+    map.addItem(make_polymorphic<DeathItem>(33, 23, deathSymbol));
+    map.addItem(make_polymorphic<DeathItem>(32, 23, deathSymbol));
+    map.addItem(make_polymorphic<DeathItem>(34, 23, deathSymbol));
+    map.addItem(make_polymorphic<DeathItem>(35, 23, deathSymbol));
+    map.addItem(make_polymorphic<DeathItem>(36, 23, deathSymbol));
+
+    map.addItem(make_polymorphic<DeathItem>(38, 23, deathSymbol));
+    map.addItem(make_polymorphic<DeathItem>(39, 23, deathSymbol));
+    map.addItem(make_polymorphic<DeathItem>(39, 22, deathSymbol));
+    map.addItem(make_polymorphic<TimyItem>(39, 20, 'T', 255));
+    map.addItem(make_polymorphic<TrollItem>(34, 22, 'T', 42, 3));
+   // map.addItem(make_polymorphic<DeathItem>(33, 23, deathSymbol));
+    //map.addItem(make_polymorphic<DeathItem>(47, 24, deathSymbol));
+   // map.addItem(make_polymorphic<DeathItem>(47, 24, deathSymbol));
 
     return map;
 }

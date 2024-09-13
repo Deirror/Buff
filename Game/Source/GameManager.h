@@ -8,10 +8,11 @@ namespace GameManager
 	static void setConsoleProperties();
 
 	static void loadingScreen();
+	static void freezeLoadingScreen();
 
 	static void processingScreen();
 
-	static void playGame(Game& game);
+	static bool playGame(Game& game);
 
 	static void trackLeftTime(Game& game);
 	
@@ -26,6 +27,7 @@ namespace GameManager
 		static void displayGameInterface(Game& game);
 
 		static void printColoredPlayer(Player player, Dimension mapDimensions);
+		static void printTimeOutAnimation(const Game& game);
 
 		static Coord mapCoordsToConsoleCoords(Coord mapCoords, Dimension mapDimensions);
 		static Coord updateCoords(Coord coords, uint8_t key);
