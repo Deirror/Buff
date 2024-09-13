@@ -13,7 +13,8 @@ enum class MapSymbolType : uint8_t
 	WhiteSpace,
 	Obsticle,
 	Border,
-	Item
+	Item,
+	Unknown
 };
 
 class Map

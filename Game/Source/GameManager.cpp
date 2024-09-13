@@ -553,6 +553,15 @@ void GameManager::updateGame(Game& game, uint8_t key)
 				teleportItem->teleportPlayer(updatedCoords);
 				break;
 			}
+			case ItemType::DeathItem:
+			{
+				game.updateGameStats(item);
+				break;
+			}
+			default:
+			{
+				break;
+			}
 			}
 		}
 	}

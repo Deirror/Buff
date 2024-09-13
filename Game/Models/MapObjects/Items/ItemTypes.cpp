@@ -18,6 +18,14 @@ ItemType getItemType(polymorphic_ptr<Item> item)
     {
         return ItemType::RandomItem;
     }
+    else if(dynamic_cast<NullItem*>(item.get()))
+    {
+        return ItemType::NullItem;
+    }
+    else if (dynamic_cast<DeathItem*>(item.get()))
+    {
+        return ItemType::DeathItem;
+    }
 
     return ItemType::NormalItem;
 }

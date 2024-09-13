@@ -81,6 +81,12 @@
     <ClCompile Include="Models\ItemValidities\AlphabeticExtentedItems.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Models\MapObjects\Items\NullItem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Models\MapObjects\Items\DeathItem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Models\Game.h">
@@ -147,6 +153,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Models\ItemValidities\AlphabeticExtentedItems.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Models\MapObjects\Items\NullItem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Models\MapObjects\Items\DeathItem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

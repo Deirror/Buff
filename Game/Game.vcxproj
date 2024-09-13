@@ -156,6 +156,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Models\MapObjects\Items\DeathItem.cpp" />
     <ClCompile Include="Models\ItemValidities\AlphabeticExtentedItems.cpp" />
     <ClCompile Include="Models\MapObjects\Items\ItemTypes.cpp" />
     <ClCompile Include="Models\ItemValidities\AlphabeticOnlyItems.cpp" />
@@ -171,6 +172,7 @@
     <ClCompile Include="Models\MapObjects\Player.cpp" />
     <ClCompile Include="Models\ItemValidities\RandomOnlyItems.cpp" />
     <ClCompile Include="Models\MapObjects\Items\RandomItem.cpp" />
+    <ClCompile Include="Models\MapObjects\Items\NullItem.cpp" />
     <ClCompile Include="Source\GameManager.cpp" />
     <ClCompile Include="Models\Map.cpp" />
     <ClCompile Include="Models\Game.cpp" />
@@ -180,6 +182,7 @@
     <ClCompile Include="Models\MapObjects\Items\TrollItem.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Models\MapObjects\Items\DeathItem.h" />
     <ClInclude Include="Models\ItemValidities\AlphabeticExtentedItems.h" />
     <ClInclude Include="Builds\MapSymbols.h" />
     <ClInclude Include="Models\MapObjects\Items\ItemTypes.h" />
@@ -195,6 +198,7 @@
     <ClInclude Include="Models\MapObjects\Player.h" />
     <ClInclude Include="Models\ItemValidities\RandomOnlyItems.h" />
     <ClInclude Include="Models\MapObjects\Items\RandomItem.h" />
+    <ClInclude Include="Models\MapObjects\Items\NullItem.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Source\GameManager.h" />
     <ClInclude Include="Models\Map.h" />

@@ -166,6 +166,14 @@ void Map::removeItem(Coord coords)
 
 MapSymbolType Map::whatMapEntityIs(Coord coords) const
 {
+	for (const auto& item : m_Items)
+	{
+		if (item->getCoords() == coords)
+		{
+			return MapSymbolType::Item;
+		}
+	}
+
 	if (isWhiteSpace(coords) || isPlayer(coords))
 	{
 		return MapSymbolType::WhiteSpace;
@@ -179,7 +187,7 @@ MapSymbolType Map::whatMapEntityIs(Coord coords) const
 		return MapSymbolType::Border;
 	}
 
-	return MapSymbolType::Item;
+	return MapSymbolType::Unknown;
 }
 
 const polymorphic_ptr<Item>& Map::getItem(Coord coords) const
@@ -330,7 +338,7 @@ bool Map::isPlayer(Coord coords) const
 
 bool Map::isItem(Coord coords) const
 {
-	return (!isBorder(coords) && !isWhiteSpace(coords) && !isObsticle(coords) && !isPlayer(coords));
+	return (!isBorder(coords) && !isObsticle(coords) && !isPlayer(coords));
 }
 
 bool Map::isObsticle(Coord coords) const
