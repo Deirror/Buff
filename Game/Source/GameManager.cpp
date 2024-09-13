@@ -290,7 +290,7 @@ void GameManager::freezeLoadingScreen()
 				std::unique_lock<std::mutex> lock(Multithread::coutMutex);
 				Multithread::LoadingScreen::isFreezed = !Multithread::LoadingScreen::isFreezed;
 				Console::clearConsole(1, 1);
-				Console::printLine("freezed", Console::Alignment::Center);
+				Console::printLine("freezed   ", Console::Alignment::Center);
 			}
 			Multithread::conditionVariable.notify_one();
 		}

@@ -429,5 +429,5 @@ map.addObsticle({ 9, 22 });
 map.addObsticle({ 8, 22 });
 map.addObsticle({ 10, 22 });
 map.addObsticle({ 11, 22 });
-map.addObsticle({ 26, 13 });
+map.addObsticle({ 27, 13 });
 map.addObsticle({ 23, 13 });
