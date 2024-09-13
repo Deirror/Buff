@@ -51,7 +51,7 @@ public:
 	size_t getItemsCount() const;
 
 private:
-	static constexpr Dimension s_MaxDimensions = { 58, 30 };
+	static constexpr Dimension s_MaxDimensions = { 50, 30 };
 	static constexpr Dimension s_MinDimensions = { 26, 14 };
 
 	static bool areDimensionsInRange(Dimension dimensions);
