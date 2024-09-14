@@ -17,125 +17,191 @@
 #include <atomic>
 #include <mutex>
 
-namespace Multithread 
+namespace GameManager
 {
-	static std::mutex coutMutex;
-	static std::atomic endFlag(false);
-	static std::condition_variable conditionVariable;
+	static void setConsoleProperties();
 
-	namespace LoadingScreen
+	static void printColoredPressLine(const char* line, uint8_t row);
+
+	static void loadingScreen();
+	static void freezeLoadingScreen();
+
+	static void processingScreen();
+
+	static void printAnimatedWaitingLine(const char* line, uint16_t sleepTime, bool hasThreads);
+
+	static bool playGame(Game& game);
+	static void trackLeftTime(Game& game);
+	static void updateGame(Game& game, uint8_t key);
+
+	static uint8_t getMovementKey();
+
+	static bool checkGameEndingState(const Game& game);
+
+	namespace GameInterface
 	{
-		static std::atomic hasFinished(false);
-		static bool isFreezed(false);
-	}
-}
+		static void displayGameInterface(Game& game);
 
-namespace ConfirmKeys
-{
-	static bool isYes(uint8_t key)
-	{
-		return ((key == VK_Y) || (key == VK_TO_LOWER(VK_Y)));
-	}
+		static void printColoredPlayer(Player player, Dimension mapDimensions);
+		static void printTimeOutAnimation(const Game& game);
 
-	static bool isNo(uint8_t key)
-	{
-		return ((key == VK_N) || (key == VK_TO_LOWER(VK_N)));
-	}
-}
+		static Coord mapCoordsToConsoleCoords(Coord mapCoords, Dimension mapDimensions);
+		static Coord updateCoords(Coord coords, uint8_t key);
 
-namespace ColoredLines
-{
-	static uint8_t s_Color = 0x1;
+		static void updateStats(Game& game);
+		static void printStats(const Game& game);
 
-	static uint8_t toBackgroundColor()
-	{
-		return (s_Color << 4);
-	}
+		static void movePlayer(Player player, Coord previousCoords, Dimension mapDimensions);
 
-	static void setColoredLines()
-	{
-		uint8_t tryColor = 0x0;
-		do
+		static void printScore(const Game& game);
+
+		namespace PlayKeys
 		{
-			tryColor = RandomGenerator::generateNext(16);
-		} while (tryColor == s_Color);
+			inline bool isPressedA(uint8_t key)
+			{
+				return (key == VK_A || (key == VK_TO_LOWER(VK_A)));
+			}
 
-		s_Color = tryColor;
+			inline bool isPressedS(uint8_t key)
+			{
+				return (key == VK_S || (key == VK_TO_LOWER(VK_S)));
+			}
+
+			inline bool isPressedD(uint8_t key)
+			{
+				return (key == VK_D || (key == VK_TO_LOWER(VK_D)));
+			}
+
+			inline bool isPressedW(uint8_t key)
+			{
+				return (key == VK_W || (key == VK_TO_LOWER(VK_W)));
+			}
+
+			inline bool isPlayKey(uint8_t key)
+			{
+				return (isPressedA(key) || isPressedS(key) || isPressedD(key) || isPressedW(key));
+			}
+		}
+
+		namespace PlayTimeOptions
+		{
+			inline bool isPressedESC(uint8_t key)
+			{
+				return (key == VK_ESCAPE);
+			}
+			inline bool isPressedR(uint8_t key)
+			{
+				return (key == VK_R || (key == VK_TO_LOWER(VK_R)));
+			}
+		}
 	}
 
-	static bool isPressedC(uint8_t key)
+	namespace GameMenu
 	{
-		return ((key == VK_C) || (key == VK_TO_LOWER(VK_C)));
-	}
+		static void printVariantsScreen();
+		static void printBuildsScreen(uint8_t mapVariant);
+
+		static uint8_t getMapVariant();
+		static uint8_t getMapBuild(uint8_t mapVariant);
+
+		static void printHelp();
+
+		static void printColoredLines(bool hasText = true);
+		static void printLogo();
+		static void printVariants();
+
+		static void printBuilds(uint8_t mapVariant);
+
+		static void printExitScreen();
+
+		static void printConfirmScreen();
+		static bool checkYoNAnswer();
+
+		static bool confirmMapVariant(uint8_t mapVariant);
+		static bool confirmMapBuild(uint8_t mapVariant, uint8_t mapBuild);
+
+		static bool checkPlayAgain();
+
+		namespace ColoredLines
+		{
+			static uint8_t s_Color = 0x1;
+
+			inline uint8_t toBackgroundColor()
+			{
+				return (s_Color << 4);
+			}
+
+			inline void setColoredLines()
+			{
+				uint8_t tryColor = 0x0;
+				do
+				{
+					tryColor = RandomGenerator::generateNext(16);
+				} while (tryColor == s_Color);
+
+				s_Color = tryColor;
+			}
+
+			inline bool isPressedC(uint8_t key)
+			{
+				return ((key == VK_C) || (key == VK_TO_LOWER(VK_C)));
+			}
+		}
+
+		namespace Help
+		{
+			inline bool isPressedE(uint8_t key)
+			{
+				return ((key == VK_E) || (key == VK_TO_LOWER(VK_E)));
+			}
+
+			inline bool isPressedH(uint8_t key)
+			{
+				return ((key == VK_H) || (key == VK_TO_LOWER(VK_H)));
+			}
+		}
+
+		namespace ConfirmKeys
+		{
+			inline bool isYes(uint8_t key)
+			{
+				return ((key == VK_Y) || (key == VK_TO_LOWER(VK_Y)));
+			}
+
+			inline bool isNo(uint8_t key)
+			{
+				return ((key == VK_N) || (key == VK_TO_LOWER(VK_N)));
+			}
+		}
 }
 
-namespace Help
-{
-	static bool isPressedE(uint8_t key)
+	namespace ExitGame
 	{
-		return ((key == VK_E) || (key == VK_TO_LOWER(VK_E)));
+		inline bool isPressedESC(uint8_t key)
+		{
+			return (key == VK_ESCAPE);
+		}
 	}
 
-	static bool isPressedH(uint8_t key)
+	namespace FreezeScreen
 	{
-		return ((key == VK_H) || (key == VK_TO_LOWER(VK_H)));
-	}
-}
-
-namespace ExitGame
-{
-	static bool isPressedESC(uint8_t key)
-	{
-		return (key == VK_ESCAPE);
-	}
-}
-
-namespace PlayKeys
-{
-	static bool isPressedA(uint8_t key)
-	{
-		return (key == VK_A || (key == VK_TO_LOWER(VK_A)));
+		inline bool isPressedF(uint8_t key)
+		{
+			return (key == VK_F || (key == VK_TO_LOWER(VK_F)));
+		}
 	}
 
-	static bool isPressedS(uint8_t key)
+	namespace Multithread
 	{
-		return (key == VK_S || (key == VK_TO_LOWER(VK_S)));
-	}
+		static std::mutex coutMutex;
+		static std::atomic endFlag(false);
+		static std::condition_variable conditionVariable;
 
-	static bool isPressedD(uint8_t key)
-	{
-		return (key == VK_D || (key == VK_TO_LOWER(VK_D)));
-	}
-
-	static bool isPressedW(uint8_t key)
-	{
-		return (key == VK_W || (key == VK_TO_LOWER(VK_W)));
-	}
-
-	static bool isPlayKey(uint8_t key)
-	{
-		return (isPressedA(key) || isPressedS(key) || isPressedD(key) || isPressedW(key));
-	}
-}
-
-namespace PlayTimeOptions
-{
-	static bool isPressedESC(uint8_t key)
-	{
-		return (key == VK_ESCAPE);
-	}
-	static bool isPressedR(uint8_t key)
-	{
-		return (key == VK_R || (key == VK_TO_LOWER(VK_R)));
-	}
-
-}
-
-namespace FreezeScreen
-{
-	static bool isPressedF(uint8_t key)
-	{
-		return (key == VK_F || (key == VK_TO_LOWER(VK_F)));
+		namespace LoadingScreen
+		{
+			static std::atomic hasFinished(false);
+			static bool isFreezed(false);
+		}
 	}
 }
 
@@ -147,7 +213,7 @@ namespace FreezeScreen
 #define GM_FIRST_ROW 0
 #define GM_LAST_ROW  (GM_CONSOLE_HEIGHT - 1)
 
-#define GM_CONSOLE_BACKGROUND_COLOR (ColoredLines::toBackgroundColor() | BACKGROUND_INTENSITY)
+#define GM_CONSOLE_BACKGROUND_COLOR (GameMenu::ColoredLines::toBackgroundColor() | BACKGROUND_INTENSITY)
 #define GM_FOREGROUND_DEF_COLOR 0x0
 
 #define GM_EXIT 0
@@ -158,7 +224,7 @@ void GameManager::start()
 	setConsoleProperties();
 
 	RandomGenerator::setSeed();
-	ColoredLines::setColoredLines();
+	GameMenu::ColoredLines::setColoredLines();
 
 	while (TRUE)
 	{
@@ -239,6 +305,15 @@ void GameManager::setConsoleProperties()
 	Console::setConsoleSize(GM_CONSOLE_WIDTH, GM_CONSOLE_HEIGHT);
 }
 
+void GameManager::printColoredPressLine(const char* line, uint8_t row)
+{
+	Console::moveCursor(0, row);
+
+	Console::printEmptyLine(GM_CONSOLE_BACKGROUND_COLOR);
+	Console::printLine(line, Console::Alignment::Center);
+	Console::printEmptyLine(GM_CONSOLE_BACKGROUND_COLOR);
+}
+
 void GameManager::loadingScreen()
 {
 	Multithread::LoadingScreen::hasFinished = false;
@@ -249,28 +324,22 @@ void GameManager::loadingScreen()
 	Console::clearConsole();
 	GameMenu::printColoredLines(false);
 
-	Console::printSymbol(Symbols::ce_NewLine, 3);
-	GamePrints::s_GameInterfaceHelp.displayContent(Console::Alignment::Center);
+	Console::printSymbol(Symbols::ce_NewLine, 2);
+	GamePrints::s_QuickGameInterfaceHelp.displayContent(Console::Alignment::Center);
+	Console::printEmptyLine();
 
-	Console::moveCursor(0, GM_CONSOLE_HEIGHT - 3);
+	GamePrints::s_QuickTipsTitle.displayContent(Console::Alignment::Center);
+	Console::printEmptyLine();
 
-	Console::printEmptyLine(GM_CONSOLE_BACKGROUND_COLOR);
-	Console::printLine("PRESS F TO FREEZE", Console::Alignment::Center);
-	Console::printEmptyLine(GM_CONSOLE_BACKGROUND_COLOR);
+	Console::printLine(GamePrints::s_QuickTipsChoice
+					  [RandomGenerator::generateNext(GamePrints::s_QuickTipsChoice.getHeight())].data(),
+					  Console::Alignment::Center, false);
+	
+	printColoredPressLine("PRESS F TO FREEZE", GM_CONSOLE_HEIGHT - 3);
 
 	Console::moveCursor(0, 1);
 
-	for (int step = 0; step < 4; ++step) 
-	{
-		{
-			std::unique_lock<std::mutex> lock(Multithread::coutMutex);
-			Multithread::conditionVariable.wait(lock, [] { return !Multithread::LoadingScreen::isFreezed; });		
-		}
-
-		Console::clearConsole(1, 1);
-		Console::printLine(std::string( "loading" + std::string(step, '.') + std::string(3 - step, ' ')).c_str(), Console::Alignment::Center);
-		Sleep(400);
-	}
+	printAnimatedWaitingLine("loading", 400, true);
 
 	Console::clearConsole();
 
@@ -302,20 +371,24 @@ void GameManager::freezeLoadingScreen()
 void GameManager::processingScreen()
 {
 	Console::clearConsole();
+	printAnimatedWaitingLine("processing", 200, false);
+	Console::clearConsole(GM_FIRST_ROW, GM_FIRST_ROW);
+}
 
+void GameManager::printAnimatedWaitingLine(const char* line, uint16_t sleepTime, bool hasThreads)
+{
 	for (int step = 0; step < 4; ++step)
 	{
+		if(hasThreads)
 		{
 			std::unique_lock<std::mutex> lock(Multithread::coutMutex);
 			Multithread::conditionVariable.wait(lock, [] { return !Multithread::LoadingScreen::isFreezed; });
 		}
 
 		Console::clearConsole(1, 1);
-		Console::printLine(std::string("processing" + std::string(step, '.') + std::string(3 - step, ' ')).c_str(), Console::Alignment::Center);
-		Sleep(200);
+		Console::printLine(std::string(line + std::string(step, '.') + std::string(3 - step, ' ')).c_str(), Console::Alignment::Center);
+		Sleep(sleepTime);
 	}
-
-	Console::clearConsole(GM_FIRST_ROW, GM_FIRST_ROW);
 }
 
 void GameManager::GameInterface::displayGameInterface(Game& game)
@@ -326,14 +399,9 @@ void GameManager::GameInterface::displayGameInterface(Game& game)
 	Console::setConsoleSize(GM_CONSOLE_WIDTH, mapDimensions.Height + 3);
 
 	map.print();
-
 	printColoredPlayer(game.getCurrentPlayer(), mapDimensions);
 
-	Console::moveCursor(0, mapDimensions.Height);
-
-	Console::printEmptyLine(GM_CONSOLE_BACKGROUND_COLOR);
-	Console::printLine("PRESS ENTER TO START", Console::Alignment::Center);
-	Console::printEmptyLine(GM_CONSOLE_BACKGROUND_COLOR);
+	printColoredPressLine("PRESS ENTER TO START", mapDimensions.Height);
 
 	while (TRUE)
 	{
@@ -493,11 +561,7 @@ void GameManager::GameInterface::printScore(const Game& game)
 	Console::printString("");
 	Console::printSymbol('-', Console::getConsoleWidth());
 
-	Console::moveCursor(0, GM_CONSOLE_HEIGHT - 3);
-
-	Console::printEmptyLine(GM_CONSOLE_BACKGROUND_COLOR);
-	Console::printLine("PRESS ENTER TO CONTINUE", Console::Alignment::Center);
-	Console::printEmptyLine(GM_CONSOLE_BACKGROUND_COLOR);
+	printColoredPressLine("PRESS ENTER TO CONTINUE", GM_CONSOLE_HEIGHT - 3);
 
 	while (TRUE)
 	{
@@ -516,7 +580,9 @@ uint8_t GameManager::getMovementKey()
 	{
 		uint8_t key = Console::getAtomicPressedKey(Multithread::endFlag);
 
-		if (PlayKeys::isPlayKey(key) || PlayTimeOptions::isPressedESC(key) || PlayTimeOptions::isPressedR(key))
+		if (GameInterface::PlayKeys::isPlayKey(key) || 
+			GameInterface::PlayTimeOptions::isPressedESC(key) || 
+			GameInterface::PlayTimeOptions::isPressedR(key))
 		{
 			return key;
 		}
@@ -587,12 +653,12 @@ bool GameManager::playGame(Game& game)
 		{ 
 			break; 
 		}
-		else if (PlayTimeOptions::isPressedESC(key))
+		else if (GameInterface::PlayTimeOptions::isPressedESC(key))
 		{
 			game.setLeftTime(0);
 			break;
 		}
-		else if (PlayTimeOptions::isPressedR(key))
+		else if (GameInterface::PlayTimeOptions::isPressedR(key))
 		{
 			game.setLeftTime(0);
 			restartGame = true;
@@ -729,12 +795,11 @@ uint8_t GameManager::GameMenu::getMapVariant()
 		else if (Help::isPressedH(key))
 		{
 			GameMenu::printHelp();
-			GameMenu::exitHelp();
 			GameMenu::printVariantsScreen();
 		}
 		else if (ExitGame::isPressedESC(key))
 		{
-			GameMenu::checkExitScreen();
+			GameMenu::printExitScreen();
 			GameMenu::printVariantsScreen();
 		}
 	}
@@ -760,12 +825,11 @@ uint8_t GameManager::GameMenu::getMapBuild(uint8_t mapVariant)
 		else if (Help::isPressedH(key))
 		{
 			GameMenu::printHelp();
-			GameMenu::exitHelp();
 			GameMenu::printBuildsScreen(mapVariant);		
 		}
 		else if (ExitGame::isPressedESC(key))
 		{
-			GameMenu::checkExitScreen();
+			GameMenu::printExitScreen();
 			GameMenu::printBuildsScreen(mapVariant);
 		}
 	}
@@ -795,18 +859,6 @@ bool GameManager::GameMenu::checkYoNAnswer()
 	}
 }
 
-void GameManager::GameMenu::exitHelp()
-{
-	while (TRUE)
-	{
-		if (Help::isPressedE(Console::getPressedKey()))
-		{
-			Console::clearConsole(1, GM_LAST_ROW - 1);
-			return;
-		}
-	}
-}
-
 bool GameManager::GameMenu::confirmMapVariant(uint8_t mapVariant)
 {
 	printConfirmScreen();
@@ -832,6 +884,15 @@ void GameManager::GameMenu::printHelp()
 	Console::clearConsole(1, GM_LAST_ROW - 1);
 	GamePrints::s_HelpScreen.displayContent(Console::Alignment::Center);
 	GameMenu::printColoredLines(false);
+
+	while (TRUE)
+	{
+		if (Help::isPressedE(Console::getPressedKey()))
+		{
+			Console::clearConsole(1, GM_LAST_ROW - 1);
+			return;
+		}
+	}
 }
 
 void GameManager::GameMenu::printColoredLines(bool hasText)
@@ -842,7 +903,7 @@ void GameManager::GameMenu::printColoredLines(bool hasText)
 	if (hasText)
 	{
 		Console::moveCursor(0, GM_LAST_ROW);
-		Console::printInThreeAlignments(" @Made by Deirror@", "Version 1.3", "Press H for help ",
+		Console::printInThreeAlignments(" @Made by Deirror@", "Version 1.4", "Press H for help ",
 										false, GM_CONSOLE_BACKGROUND_COLOR | GM_FOREGROUND_DEF_COLOR);
 	}
 	else
@@ -870,7 +931,7 @@ void GameManager::GameMenu::printBuilds(uint8_t mapVariant)
 	GamePrints::s_MapBuildsOption[index].displayContent(Console::Alignment::Center);
 }
 
-void GameManager::GameMenu::checkExitScreen()
+void GameManager::GameMenu::printExitScreen()
 {
 	Console::clearConsole(1, GM_LAST_ROW - 1);
 	GamePrints::s_ExitScreen.displayContent(Console::Alignment::Center);
