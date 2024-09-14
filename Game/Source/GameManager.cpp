@@ -331,6 +331,7 @@ void GameManager::loadingScreen()
 	GamePrints::s_QuickTipsTitle.displayContent(Console::Alignment::Center);
 	Console::printEmptyLine();
 
+	RandomGenerator::setSeed();
 	Console::printLine(GamePrints::s_QuickTipsChoice
 					  [RandomGenerator::generateNext(GamePrints::s_QuickTipsChoice.getHeight())].data(),
 					  Console::Alignment::Center, false);
