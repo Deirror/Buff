@@ -148,6 +148,14 @@ namespace GameManager
 			}
 		}
 
+		namespace ReturnKey
+		{
+			inline bool isPressedR(uint8_t key)
+			{
+				return ((key == VK_R) || (key == VK_TO_LOWER(VK_R)));
+			}
+		}
+
 		namespace Help
 		{
 			inline bool isPressedE(uint8_t key)
@@ -249,6 +257,11 @@ void GameManager::start()
 			if (ExitGame::isPressedESC(mapBuild))
 			{
 				exit(GM_EXIT);
+			}
+
+			if (GameMenu::ReturnKey::isPressedR(mapBuild))
+			{
+				break;
 			}
 
 			if (!GameMenu::confirmMapBuild(mapVariant, mapBuild))
@@ -814,7 +827,7 @@ uint8_t GameManager::GameMenu::getMapBuild(uint8_t mapVariant)
 	{
 		uint8_t key = Console::getPressedKey();
 
-		if (MapCounts::s_MapBuildsCounts[index].isInRange(TO_NUMBER(key)))
+		if (MapCounts::s_MapBuildsCounts[index].isInRange(TO_NUMBER(key)) || ReturnKey::isPressedR(key))
 		{
 			return key;
 		}

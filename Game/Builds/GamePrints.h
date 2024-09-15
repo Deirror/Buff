@@ -14,8 +14,9 @@ namespace GamePrints
 	static const DisplayBuffer<33, 6> s_ConfirmScreen = {" ","Do you confirm what you selected?",
 														 " "," "," ","Press Y or N"};
 
-	static const DisplayBuffer<26, 7> s_HelpScreen = {"/ ->Help Menu <-\\"," ","C - Randomly change color",
+	static const DisplayBuffer<26, 8> s_HelpScreen = {"/ ->Help Menu <-\\"," ","C - Randomly change color",
 														 "Ctrl + SW - resize font", "ESC - Exit the game",
+		                                                  "R - Return to last screen",
 														  " ", "Press E to exit Help Menu"};
 
 	static const DisplayBuffer<29, 4> s_ExitScreen = { " ", "Do you reallyy want to exit?"," ", "Press Y or N",};
