@@ -87,6 +87,9 @@
     <ClCompile Include="Models\MapObjects\Items\DeathItem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Models\ItemValidities\RandomExtendedItems.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Models\Game.h">
@@ -161,11 +164,15 @@
     <ClInclude Include="Models\MapObjects\Items\DeathItem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Models\ItemValidities\RandomExtendedItems.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Builds\Maps\ObsticlesBuilds\AzbukiObsticles.txt" />
     <Text Include="Builds\Maps\ObsticlesBuilds\XidiomasObsticles.txt" />
     <Text Include="Builds\Maps\ObsticlesBuilds\FAKTObsticles.txt" />
+    <Text Include="Builds\Maps\ObsticlesBuilds\ThePitObsticles.txt" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Game.rc">
