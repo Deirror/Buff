@@ -59,5 +59,5 @@ namespace GamePrints
 	static const DisplayBuffer<34, 10> s_QuickGameInterfaceHelp = { "/ ->Quick Game Interface Menu<- \\", " ", "A,S,D,W - Standart movement keys", "ESC - exit current game","R - restart current game"};
 
 	static const DisplayBuffer<19, 1> s_QuickTipsTitle = { "/ ->Quick Tips<- \\"};
-	static const DisplayBuffer<34, 4> s_QuickTipsChoice = {"Hold movement keys to be faster", "Spam movement keys to be flexible", "Firstly, look at the map and plan", "Watch out for traps on the map!"};
+	static const DisplayBuffer<34, 5> s_QuickTipsChoice = {"Hold movement keys to be faster", "Spam movement keys to be flexible", "Firstly, look at the map and plan", "Watch out for traps on the map!", "Often there are invisible items!"};
 }
