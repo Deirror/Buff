@@ -42,7 +42,7 @@ private:
 	Map m_Map;
 
 	Player m_CurrentPlayer;
-	mutable Timer m_PlayedTime;
+	Timer m_PlayedTime;
 
 	std::vector<Coord> m_CollectedItemsCoords;
 	uint8_t m_UncollectableItems = NULL;
