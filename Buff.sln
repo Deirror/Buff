@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Engine", "Engine\Engine.vcx
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Game", "Game\Game.vcxproj", "{290F77A9-5ABF-43F6-99CE-A35D34A30287}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "BuffGameInstaller", "BuffGameInstaller\BuffGameInstaller.vdproj", "{4D2A61E1-03AF-4ABE-A031-C6E01BDF0FB2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -31,6 +33,10 @@ Global
 		{290F77A9-5ABF-43F6-99CE-A35D34A30287}.Release|x64.Build.0 = Release|x64
 		{290F77A9-5ABF-43F6-99CE-A35D34A30287}.Release|x86.ActiveCfg = Release|Win32
 		{290F77A9-5ABF-43F6-99CE-A35D34A30287}.Release|x86.Build.0 = Release|Win32
+		{4D2A61E1-03AF-4ABE-A031-C6E01BDF0FB2}.Debug|x64.ActiveCfg = Debug
+		{4D2A61E1-03AF-4ABE-A031-C6E01BDF0FB2}.Debug|x86.ActiveCfg = Debug
+		{4D2A61E1-03AF-4ABE-A031-C6E01BDF0FB2}.Release|x64.ActiveCfg = Release
+		{4D2A61E1-03AF-4ABE-A031-C6E01BDF0FB2}.Release|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
