@@ -173,6 +173,7 @@
     <ClCompile Include="Models\ItemValidities\RandomOnlyItems.cpp" />
     <ClCompile Include="Models\MapObjects\Items\RandomItem.cpp" />
     <ClCompile Include="Models\MapObjects\Items\NullItem.cpp" />
+    <ClCompile Include="Models\ItemValidities\RandomExtendedItems.cpp" />
     <ClCompile Include="Source\GameManager.cpp" />
     <ClCompile Include="Models\Map.cpp" />
     <ClCompile Include="Models\Game.cpp" />
@@ -199,6 +200,7 @@
     <ClInclude Include="Models\ItemValidities\RandomOnlyItems.h" />
     <ClInclude Include="Models\MapObjects\Items\RandomItem.h" />
     <ClInclude Include="Models\MapObjects\Items\NullItem.h" />
+    <ClInclude Include="Models\ItemValidities\RandomExtendedItems.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Source\GameManager.h" />
     <ClInclude Include="Models\Map.h" />
@@ -210,6 +212,7 @@
   <ItemGroup>
     <Text Include="Builds\Maps\ObsticlesBuilds\AzbukiObsticles.txt" />
     <Text Include="Builds\Maps\ObsticlesBuilds\FAKTObsticles.txt" />
+    <Text Include="Builds\Maps\ObsticlesBuilds\ThePitObsticles.txt" />
     <Text Include="Builds\Maps\ObsticlesBuilds\XidiomasObsticles.txt" />
   </ItemGroup>
   <ItemGroup>

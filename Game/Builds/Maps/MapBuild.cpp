@@ -1,6 +1,7 @@
 #include "MapBuild.h"
 //--------------------------------------------------------------
 #include "../../Models/ItemValidities/AlphabeticExtentedItems.h"
+#include "../../Models/ItemValidities/RandomExtendedItems.h"
 #include "../../Models/ItemValidities/AlphabeticOnlyItems.h"
 #include "../../Models/ItemValidities/RandomOnlyItems.h"
 //------------------------------------------------------
@@ -24,7 +25,7 @@ namespace MapDimensions
 
     namespace RandomizerDimensions
     {
-        static const Dimension s_ThePitDimensions = { 40, 28 };
+        static const Dimension s_ThePitDimensions = { 37, 28 };
         static const Dimension s_BlocksmcDimensions = { 30, 15 };
     }
 
@@ -145,7 +146,7 @@ Map AlphabeticBuild::buildXidiomas()
     return map;
 }
 
-Map AlphabeticBuild::buildFAKT()
+Map AlphabeticBuild::buildFAKT() 
 {
     Map map(AlphabeticDimensions::s_FAKTDimensions, 23, make_polymorphic<AlphabeticExtentedItems>());
 
@@ -312,14 +313,32 @@ Map AlphabeticBuild::buildFAKT()
 
 Map RandomizerBuild::buildThePit()
 {
-    Map map(RandomizerDimensions::s_ThePitDimensions, 7, make_polymorphic<RandomOnlyItems>());
+    Map map(RandomizerDimensions::s_ThePitDimensions, 15, make_polymorphic<RandomOnlyItems>());
+
+    map.setPlayer({ 18, 26 });
+
+    #include "ObsticlesBuilds/ThePitObsticles.txt"
+
+    map.addItem(make_polymorphic<RandomItem>(17, 23, 6, 10));
+    map.addItem(make_polymorphic<RandomItem>(21, 22, 5, 4));
+    map.addItem(make_polymorphic<RandomItem>(19, 21, 1, 3));
+
+    map.addItem(make_polymorphic<RandomItem>(14, 17, 1, 4));
+    map.addItem(make_polymorphic<RandomItem>(22, 17, 10, 5));
+    map.addItem(make_polymorphic<RandomItem>(18, 18, 5, 3));
+
+    map.addItem(make_polymorphic<RandomItem>(18, 14, 1, 4));
+    map.addItem(make_polymorphic<RandomItem>(15, 10, 3, 4));
+    map.addItem(make_polymorphic<RandomItem>(21, 12, 5, 3));
+
+    map.addItem(make_polymorphic<RandomItem>(18, 5, 10, 19, 5, 10));
 
     return map;
 }
 
 Map RandomizerBuild::buildBlocksmc()
 {
-    Map map(RandomizerDimensions::s_BlocksmcDimensions, 7, make_polymorphic<RandomOnlyItems>());
+    Map map(RandomizerDimensions::s_BlocksmcDimensions, 12, make_polymorphic<RandomExtendedItems>());
 
     return map;
 }
