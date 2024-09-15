@@ -173,6 +173,9 @@
     <Text Include="Builds\Maps\ObsticlesBuilds\XidiomasObsticles.txt" />
     <Text Include="Builds\Maps\ObsticlesBuilds\FAKTObsticles.txt" />
     <Text Include="Builds\Maps\ObsticlesBuilds\ThePitObsticles.txt" />
+    <Text Include="Builds\Maps\ObsticlesBuilds\BlocksmcObsticles.txt" />
+    <Text Include="Builds\Maps\ObsticlesBuilds\DOOMzObsticles.txt" />
+    <Text Include="Builds\Maps\ObsticlesBuilds\BAKObsticles.txt" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Game.rc">

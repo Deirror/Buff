@@ -30,7 +30,7 @@ namespace GamePrints
 															  "|\\ Choices For Playground |",
 															  "|\\    (-)Alphabetic(-)    |",
 															  "|\\    (-)Randomized(-)    |",
-															  "|\\     (-)Imposter(-)     |",
+															  "|\\     (-)Training(-)     |",
 															  "=-------------------------=",
 																 "//Press a number(1-3)" };
 

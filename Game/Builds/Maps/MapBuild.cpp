@@ -26,13 +26,13 @@ namespace MapDimensions
     namespace RandomizerDimensions
     {
         static const Dimension s_ThePitDimensions = { 37, 28 };
-        static const Dimension s_BlocksmcDimensions = { 30, 15 };
+        static const Dimension s_BlocksmcDimensions = { 31, 15 };
     }
 
-    namespace ImposterDimensions
+    namespace TrainingDimensions
     {
-        static const Dimension s_DOOMzDimensions = { 44, 27 };
-        static const Dimension s_BAKDimensions = { 33, 28 };
+        static const Dimension s_DOOMzDimensions = { 45, 27 };
+        static const Dimension s_BAKDimensions = { 27, 28 };
     }
 }
 
@@ -333,35 +333,222 @@ Map RandomizerBuild::buildThePit()
 
     map.addItem(make_polymorphic<RandomItem>(18, 5, 10, 19, 5, 10));
 
+    map.addItem(make_polymorphic<RandomItem>(4, 21, 10, 30, 5, 10));
+    map.addItem(make_polymorphic<RandomItem>(1, 16, 5, 14, 8, 10));
+    map.addItem(make_polymorphic<RandomItem>(9, 10, 16, 30, 15, 30));
+    map.addItem(make_polymorphic<RandomItem>(9, 23, 10, 20, 15, 30));
+
+    map.addItem(make_polymorphic<RandomItem>(8, 13, 17, 20, 15, 30));
+    map.addItem(make_polymorphic<RandomItem>(2, 10, 13, 20, 23, 30));
+    map.addItem(make_polymorphic<RandomItem>(7, 6, 20, 30,  15, 20));
+    map.addItem(make_polymorphic<RandomItem>(3, 3, 10, 20, 15, 30));
+
+    map.addItem(make_polymorphic<RandomItem>(5, 6, 17, 20, 20, 24));
+    map.addItem(make_polymorphic<RandomItem>(1, 8, 10, 13, 8, 16));
+    map.addItem(make_polymorphic<RandomItem>(14, 1, 2, 20, 15, 30));
+    map.addItem(make_polymorphic<RandomItem>(26, 1, 6, 20, 12, 30));
+
+    map.addItem(make_polymorphic<RandomItem>(27, 4, 6, 20, 12, 20));
+    map.addItem(make_polymorphic<RandomItem>(26, 8, 6, 20, 12, 20));
+
+    map.addItem(make_polymorphic<RandomItem>(34, 2, 6, 20, 12, 20));
+    map.addItem(make_polymorphic<RandomItem>(34, 7, 6, 20, 12, 20));
+    map.addItem(make_polymorphic<RandomItem>(28, 8, 6, 20, 12, 20));
+
+    map.addItem(make_polymorphic<RandomItem>(33, 10, 6, 20, 9, 15));
+    map.addItem(make_polymorphic<RandomItem>(35, 14, 6, 20, 12, 20));
+    map.addItem(make_polymorphic<RandomItem>(27, 14, 6, 20, 12, 20));
+    map.addItem(make_polymorphic<RandomItem>(27, 21, 6, 20, 12, 20));
+
+    map.addItem(make_polymorphic<RandomItem>(34, 23, 6, 20, 12, 20));
+    map.addItem(make_polymorphic<RandomItem>(34, 17, 6, 20, 12, 20));
+
     return map;
 }
 
 Map RandomizerBuild::buildBlocksmc()
 {
-    Map map(RandomizerDimensions::s_BlocksmcDimensions, 12, make_polymorphic<RandomExtendedItems>());
+    Map map(RandomizerDimensions::s_BlocksmcDimensions, 20, make_polymorphic<RandomExtendedItems>());
+
+    map.setPlayer({ 1, 1 });
+
+    #include "ObsticlesBuilds/BlocksmcObsticles.txt"
+
+    map.addItem(make_polymorphic<TeleportItem>(29, 13, 3, 3));
+    map.addItem(make_polymorphic<TeleportItem>(27, 11, 5, 5));
+
+    map.addItem(make_polymorphic<RandomItem>(6, 8, 255, 3));
+    map.addItem(make_polymorphic<RandomItem>(7, 9, 255, 3));
+    map.addItem(make_polymorphic<RandomItem>(8, 9, 255, 3));
+    map.addItem(make_polymorphic<RandomItem>(9, 9, 255, 3));
+    map.addItem(make_polymorphic<RandomItem>(10, 8, 255, 3));
+    map.addItem(make_polymorphic<RandomItem>(9, 7, 255, 3));
+    map.addItem(make_polymorphic<RandomItem>(8, 6, 255, 3));
+    map.addItem(make_polymorphic<RandomItem>(8, 5, 255, 3));
+
+    map.addItem(make_polymorphic<RandomItem>(13, 8, 255, 3));
+    map.addItem(make_polymorphic<RandomItem>(14, 9, 255, 3));
+    map.addItem(make_polymorphic<RandomItem>(15, 9, 255, 3));
+    map.addItem(make_polymorphic<RandomItem>(16, 9, 255, 3));
+    map.addItem(make_polymorphic<RandomItem>(17, 8, 255, 3));
+    map.addItem(make_polymorphic<RandomItem>(16, 7, 255, 3));
+    map.addItem(make_polymorphic<RandomItem>(15, 6, 255, 3));
+    map.addItem(make_polymorphic<RandomItem>(15, 5, 255, 3));
+
+    map.addItem(make_polymorphic<RandomItem>(20, 8, 255, 3));
+    map.addItem(make_polymorphic<RandomItem>(21, 9, 255, 3));
+    map.addItem(make_polymorphic<RandomItem>(22, 9, 255, 3));
+    map.addItem(make_polymorphic<RandomItem>(23, 9, 255, 3));
+    map.addItem(make_polymorphic<RandomItem>(24, 8, 255, 3));
+    map.addItem(make_polymorphic<RandomItem>(23, 7, 255, 3));
+    map.addItem(make_polymorphic<RandomItem>(22, 6, 255, 3));
+    map.addItem(make_polymorphic<RandomItem>(22, 5, 255, 3));
 
     return map;
 }
 
-Map ImposterBuild::buildDOOMz()
+Map TrainingBuild::buildDOOMz()
 {
-    Map map(ImposterDimensions::s_DOOMzDimensions, 7, make_polymorphic<AcceptAllItems>());
+    Map map(TrainingDimensions::s_DOOMzDimensions, 195, make_polymorphic<AcceptAllItems>());
+
+    map.setPlayer({22, 3});
+
+    #include "ObsticlesBuilds/DOOMzObsticles.txt"
+
+    map.addItem(make_polymorphic<NullItem>(19, 3,'o', false));
+    map.addItem(make_polymorphic<NullItem>(25, 3, 'o', false));
+
+    map.addItem(make_polymorphic<TeleportItem>(13, 2, 10, 5));
+    map.addItem(make_polymorphic<TeleportItem>(10, 2, 7, 5));
+    map.addItem(make_polymorphic<TeleportItem>(7, 2, 4, 5));
+    map.addItem(make_polymorphic<TeleportItem>(4, 2, 18, 10));
+    map.addItem(make_polymorphic<TeleportItem>(18, 14, 4, 9));
+    map.addItem(make_polymorphic<TeleportItem>(18, 12, 17, 16));
+    map.addItem(make_polymorphic<TeleportItem>(3, 13, 22, 3));
+
+    map.addItem(make_polymorphic<TeleportItem>(31, 2, 34, 5));
+    map.addItem(make_polymorphic<TeleportItem>(34, 2, 37, 5));
+    map.addItem(make_polymorphic<TeleportItem>(37, 2, 40, 5));
+    map.addItem(make_polymorphic<TeleportItem>(40, 2, 26, 10));
+    map.addItem(make_polymorphic<TeleportItem>(26, 14, 40, 9));
+    map.addItem(make_polymorphic<TeleportItem>(26, 12, 27, 16));
+    map.addItem(make_polymorphic<TeleportItem>(41, 13, 22, 3));
+
+    uint8_t randomChoice = RandomGenerator::generateNext(10) + 1;
+
+    switch (randomChoice)
+    {
+    case 1:
+    {
+        map.addItem(make_polymorphic<TeleportItem>(2, 12, 22, 11, ' '));
+        break;
+    }
+    case 2:
+    {
+        map.addItem(make_polymorphic<TeleportItem>(42, 11, 22, 11, ' '));
+        break;
+    }
+    case 3:
+    {
+        map.addItem(make_polymorphic<TeleportItem>(33, 7, 22, 11, ' '));
+        break;
+    }
+    case 4:
+    {
+        map.addItem(make_polymorphic<TeleportItem>(42, 4, 22, 11, ' '));
+        break;
+    }
+    case 5:
+    {
+        map.addItem(make_polymorphic<TeleportItem>(10, 4, 22, 11, ' '));
+        break;
+    }
+    case 6:
+    {
+        map.addItem(make_polymorphic<TeleportItem>(27, 5, 22, 11, ' '));
+        break;
+    }
+    case 7:
+    {
+        map.addItem(make_polymorphic<TeleportItem>(9, 20, 22, 11, ' '));
+        break;
+    }
+    case 8:
+    {
+        map.addItem(make_polymorphic<TeleportItem>(42, 24, 22, 11, ' '));
+        break;
+    }
+    case 9:
+    {
+        map.addItem(make_polymorphic<TeleportItem>(29, 19, 22, 11, ' '));
+        break;
+    }
+    case 10:
+    {
+        map.addItem(make_polymorphic<TeleportItem>(3, 17, 22, 11, ' '));
+        break;
+    }
+    }
+
+    map.addItem(make_polymorphic<RandomItem>(22, 10, 255, 3));
 
     return map;
 }
 
-Map ImposterBuild::buildBAK()
+Map TrainingBuild::buildBAK()
 {
-    Map map(ImposterDimensions::s_BAKDimensions, 27, make_polymorphic<AcceptAllItems>());
+    Map map(TrainingDimensions::s_BAKDimensions, 60, make_polymorphic<AcceptAllItems>());
 
-    map.setPlayer({ 1,2 });
+    Coord playerCoords = { 13,3 };
 
-    map.addItem(make_polymorphic<Item>(3, 3, 'z', 12, 30));
-    map.addItem(make_polymorphic<Item>(5, 12, 'a', 13, 21));
-    map.addItem(make_polymorphic<TeleportItem>(11, 12, 13, 16));
-    map.addItem(make_polymorphic<TrollItem>(17, 19, '@', 5, 5));
-    map.addItem(make_polymorphic<TimyItem>(22, 20, 't', 252));
-    map.addItem(make_polymorphic<RandomItem>(10, 20, 200, 20));
+    map.setPlayer(playerCoords);
+
+    #include "ObsticlesBuilds/BAKObsticles.txt"
+
+    uint8_t times = RandomGenerator::generateValidNext(10, 15);
+    uint8_t itemChoice = RandomGenerator::generateNext(times);
+
+    for (uint8_t iter = 0; iter < times; iter++)
+    {
+        MapSymbolType mapSymbolType = MapSymbolType::Unknown;
+        Coord mapCoords;
+
+        do
+        {
+            uint8_t x = RandomGenerator::generateValidNext(1, TrainingDimensions::s_BAKDimensions.Width - 2);
+            uint8_t y = RandomGenerator::generateValidNext(1, TrainingDimensions::s_BAKDimensions.Height - 2);
+            mapCoords = { x, y };
+
+            mapSymbolType = map.whatMapEntityIs(mapCoords);
+        } while (mapSymbolType != MapSymbolType::WhiteSpace);
+
+        if (itemChoice == iter)
+        {
+            map.addItem(make_polymorphic<Item>(mapCoords, '$', 1, 1));
+            continue;
+        }
+
+        map.addItem(make_polymorphic<TrollItem>(mapCoords, '$', playerCoords));
+    }
+
+    times = RandomGenerator::generateValidNext(5, 10);
+
+    for (uint8_t iter = 0; iter < times; iter++)
+    {
+        MapSymbolType mapSymbolType = MapSymbolType::Unknown;
+        Coord mapCoords;
+
+        do
+        {
+            uint8_t x = RandomGenerator::generateValidNext(1, TrainingDimensions::s_BAKDimensions.Width - 2);
+            uint8_t y = RandomGenerator::generateValidNext(1, TrainingDimensions::s_BAKDimensions.Height - 2);
+            mapCoords = { x, y };
+
+            mapSymbolType = map.whatMapEntityIs(mapCoords);
+        } while (mapSymbolType != MapSymbolType::WhiteSpace);
+
+        map.addItem(make_polymorphic<DeathItem>(mapCoords, ' '));
+    }
 
     return map;
 }
