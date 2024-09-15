@@ -60,7 +60,10 @@ bool Game::isTimeOut() const
 
 void Game::decrementLeftTime()
 {
-    m_LeftTime--;
+    if (m_LeftTime)
+    {
+        m_LeftTime--;
+    }
 }
 
 void Game::updateCurrentPlayerCoords(Coord coords)
