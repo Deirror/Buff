@@ -93,4 +93,4 @@ As this free console game is Windows specific, I decided to create a .msi and no
 How to reach out to me?
 -
 
-If you find bugs, glitches or whatsoever, write a letter at [alexmailbg@gmail.com](https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox?compose=new)
+If you find bugs, glitches or whatsoever, write a letter at [alexmailbg@gmail.com](https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox?compose=DmwnWtMmVfvBlVtNfXmBQMFMqLfKrsJNxhktRkCGZfzkPkNLTdnRmBDkXBZhxzFxjQsfhpHTSkhl)
