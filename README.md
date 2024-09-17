@@ -77,5 +77,5 @@ All Time Game Versions
 -
 | Version | What's newly added |
 | -- | --- |
-| `v1.0` | Added Standart and Teleport Item to ***Buff*** |
+| `v1.0` | Added Standart and Teleport Item to ***Buff***, Created the first map *Azbuki* |
 
