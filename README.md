@@ -8,4 +8,4 @@ A Windows specific console game, called "Buff", which is pretty well structured 
 What is it about?
 -
 
-It is all about collecting items on a given map. There differnet kinds of items, some may give you only time, only points or to be honest some may kill you.. so be careful what you collect
+It is all about collecting items on a given map. There are different kinds of items, some of them may give you only time or points or teleport you and of course some may kill you.. so be careful what you collect
