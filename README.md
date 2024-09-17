@@ -58,8 +58,8 @@ What items are there?
 There are 7 different items:
 | Item Names | Description |
 | --- | --- |
-| `Standart Item` | Gives points and resets left time |
-| 'Null Item' | Just exists lol, doesn't affect stats |
+| Standart Item | Gives points and resets left time |
+| Null Item | Just exists lol, doesn't affect stats |
 | Timy Item | Gives huge amount of time |
 | Random Item | Gives random stats |
 | Teleport Item | Teleports to given coordinates |
