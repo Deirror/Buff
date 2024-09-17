@@ -27,7 +27,7 @@ Press F to freeze nad unfreeze the loading screen for some time.
 
 5.By pressing ENTER the game starts. If you want to restart press R or to espace ESC.
 
-Some demonstrations of the given five steps 
+A demonstration of the given five steps 
 -
 
 https://github.com/user-attachments/assets/f2e09996-6d9a-4a04-82e0-9d9f6712d891
