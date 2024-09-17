@@ -10,7 +10,7 @@ namespace BuildFunction
 
     using namespace AlphabeticBuild;
     using namespace RandomizerBuild;
-    using namespace TrainingBuild;
+    using namespace ImposterBuild;
 
     static const Buffer2D<buildFunction, 3, 3> mapBuildCaller = { {buildAzbuki, buildXidiomas, buildFAKT},
                                                                   {buildThePit, buildBlocksmc},

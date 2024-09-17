@@ -13,7 +13,7 @@ namespace RandomizerBuild
 	Map buildBlocksmc();
 }
 
-namespace TrainingBuild
+namespace ImposterBuild
 {
 	Map buildDOOMz();
 	Map buildBAK();

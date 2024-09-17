@@ -29,7 +29,7 @@ namespace MapDimensions
         static const Dimension s_BlocksmcDimensions = { 31, 15 };
     }
 
-    namespace TrainingDimensions
+    namespace ImposterDimensions
     {
         static const Dimension s_DOOMzDimensions = { 45, 27 };
         static const Dimension s_BAKDimensions = { 27, 28 };
@@ -407,9 +407,9 @@ Map RandomizerBuild::buildBlocksmc()
     return map;
 }
 
-Map TrainingBuild::buildDOOMz()
+Map ImposterBuild::buildDOOMz()
 {
-    Map map(TrainingDimensions::s_DOOMzDimensions, 195, make_polymorphic<AcceptAllItems>());
+    Map map(ImposterDimensions::s_DOOMzDimensions, 195, make_polymorphic<AcceptAllItems>());
 
     map.setPlayer({22, 3});
 
@@ -495,9 +495,9 @@ Map TrainingBuild::buildDOOMz()
     return map;
 }
 
-Map TrainingBuild::buildBAK()
+Map ImposterBuild::buildBAK()
 {
-    Map map(TrainingDimensions::s_BAKDimensions, 60, make_polymorphic<AcceptAllItems>());
+    Map map(ImposterDimensions::s_BAKDimensions, 60, make_polymorphic<AcceptAllItems>());
 
     Coord playerCoords = { 13,3 };
 
@@ -515,8 +515,8 @@ Map TrainingBuild::buildBAK()
 
         do
         {
-            uint8_t x = RandomGenerator::generateValidNext(1, TrainingDimensions::s_BAKDimensions.Width - 2);
-            uint8_t y = RandomGenerator::generateValidNext(1, TrainingDimensions::s_BAKDimensions.Height - 2);
+            uint8_t x = RandomGenerator::generateValidNext(1, ImposterDimensions::s_BAKDimensions.Width - 2);
+            uint8_t y = RandomGenerator::generateValidNext(1, ImposterDimensions::s_BAKDimensions.Height - 2);
             mapCoords = { x, y };
 
             mapSymbolType = map.whatMapEntityIs(mapCoords);
@@ -540,8 +540,8 @@ Map TrainingBuild::buildBAK()
 
         do
         {
-            uint8_t x = RandomGenerator::generateValidNext(1, TrainingDimensions::s_BAKDimensions.Width - 2);
-            uint8_t y = RandomGenerator::generateValidNext(1, TrainingDimensions::s_BAKDimensions.Height - 2);
+            uint8_t x = RandomGenerator::generateValidNext(1, ImposterDimensions::s_BAKDimensions.Width - 2);
+            uint8_t y = RandomGenerator::generateValidNext(1, ImposterDimensions::s_BAKDimensions.Height - 2);
             mapCoords = { x, y };
 
             mapSymbolType = map.whatMapEntityIs(mapCoords);
