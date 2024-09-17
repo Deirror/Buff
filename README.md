@@ -49,8 +49,8 @@ There are 3 variants:
 | Variant Names | Description | Maps |
 | --- | --- | --- |
 | Alphabetic | Contains the letters from the alphabet + some special symbols (for teleporting or killing) | "Azbuki", "Xidiomas", "FAKT" |
-| Randomized | contains '?' and again the special symbols | "ThePit", "Blocksmc" |
-| Imposter | contains all types of symbols | "DOOMz", "BAK" |
+| Randomized | Contains '?' and again the special symbols | "ThePit", "Blocksmc" |
+| Imposter | Contains all types of symbols | "DOOMz", "BAK" |
 
 What items are there?
 -
