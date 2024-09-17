@@ -65,3 +65,12 @@ There are 7 different items:
 | Teleport Item | Teleports to given coordinates |
 | Troll Item | Steals current points and teleports to bad place |
 | Death Item | Ends your game by force |
+
+Cool features to the game?
+-
+
+Check this out!
+
+https://github.com/user-attachments/assets/0e733861-c44b-496f-b8b6-94e15adf6bc4
+
+
