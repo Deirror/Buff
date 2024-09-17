@@ -917,7 +917,7 @@ void GameManager::GameMenu::printColoredLines(bool hasText)
 	if (hasText)
 	{
 		Console::moveCursor(0, GM_LAST_ROW);
-		Console::printInThreeAlignments(" @Made by Deirror@", "Version 1.4", "Press H for help ",
+		Console::printInThreeAlignments(" @Made by Deirror@", "Version 1.6", "Press H for help ",
 										false, GM_CONSOLE_BACKGROUND_COLOR | GM_FOREGROUND_DEF_COLOR);
 	}
 	else
