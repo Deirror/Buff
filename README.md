@@ -46,3 +46,22 @@ There are 3 variants:
 2.Randomized - contains '?' and again the special symbols
 
 3.Imposter - contains all types of symbols
+
+What item are there?
+-
+
+There are 7 different items?
+
+1.Standart Item - gives points and resets left time
+
+2.Null Item - just exists lol, doesn't affect stats
+
+3.Timy Item - gives huge amount of time
+
+4.Random Item - gives random stats
+
+5.Teleport Item - teleports to given coordinates
+
+6.Troll Item - steals current points and teleports to bad place
+
+7.Death Item - ends your game by force
