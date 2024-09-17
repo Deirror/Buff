@@ -10,6 +10,22 @@ What is it about?
 
 It is all about collecting items on a given map. There are different kinds of items, some of them may give you only time or points or teleport you and of course some may kill you.. so be careful what you collect
 
+How to play?
+-
+
+1.When you open the game, the main menu pops up. 
+
+2.Just Press a number as already shown to choose a variant and then the map.
+
+3.If you don't like the variant map you have chosen, just press R to retrun back to the starting menu.
+
+4.After you confirm the variant and the map, a loading screen pops up. There are some basic instructions + some quick tips :D
+Press F to freeze nad unfreeze the screen for some time.
+
+5.By pressing ENTER the game starts. If you want to restart press R or to espace ESC.
+
+//video
+
 How to win a game?
 -
 
@@ -19,3 +35,5 @@ That is how the winning screen looks like:
 -
 
 ![Screenshot (619)](https://github.com/user-attachments/assets/ad952cc3-a6a8-48b3-a1e3-b9590663b6bc)
+
+
