@@ -15,8 +15,14 @@
     {
         "Entry"
         {
+        "MsmKey" = "8:_3BB88C20ADB360A937CDA20F1E063331"
+        "OwnerKey" = "8:_90D87250BBE44B83A80498D21E971451"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_3D0C0428744288FFA1C76B97F8B6C6CF"
-        "OwnerKey" = "8:_A9DFD73A8947480C91888085B270B44D"
+        "OwnerKey" = "8:_90D87250BBE44B83A80498D21E971451"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -28,67 +34,67 @@
         "Entry"
         {
         "MsmKey" = "8:_82857EB02A0DBA435117B6F973E7FDC9"
-        "OwnerKey" = "8:_A9DFD73A8947480C91888085B270B44D"
+        "OwnerKey" = "8:_90D87250BBE44B83A80498D21E971451"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_844A34EF14E2AC3836F45A2A044B0E1B"
-        "OwnerKey" = "8:_A9DFD73A8947480C91888085B270B44D"
+        "OwnerKey" = "8:_90D87250BBE44B83A80498D21E971451"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_9477C8236F35807F9648D51675C31461"
-        "OwnerKey" = "8:_A9DFD73A8947480C91888085B270B44D"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_95F0FEAC72A31966E517EE23A708F736"
-        "OwnerKey" = "8:_A9DFD73A8947480C91888085B270B44D"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_9F774F9FCF277B782FA4C228FF7F75F8"
-        "OwnerKey" = "8:_A9DFD73A8947480C91888085B270B44D"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_A9DFD73A8947480C91888085B270B44D"
+        "MsmKey" = "8:_90D87250BBE44B83A80498D21E971451"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
+        "MsmKey" = "8:_9477C8236F35807F9648D51675C31461"
+        "OwnerKey" = "8:_90D87250BBE44B83A80498D21E971451"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_95F0FEAC72A31966E517EE23A708F736"
+        "OwnerKey" = "8:_90D87250BBE44B83A80498D21E971451"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_9F774F9FCF277B782FA4C228FF7F75F8"
+        "OwnerKey" = "8:_90D87250BBE44B83A80498D21E971451"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_B10BCFCC33280F8B9258EDE9F6914692"
-        "OwnerKey" = "8:_A9DFD73A8947480C91888085B270B44D"
+        "OwnerKey" = "8:_90D87250BBE44B83A80498D21E971451"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_BE46366E461A86FF6A728A8A2109A424"
-        "OwnerKey" = "8:_A9DFD73A8947480C91888085B270B44D"
+        "OwnerKey" = "8:_90D87250BBE44B83A80498D21E971451"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_BF62D200EA0157BEC0648A014571540B"
-        "OwnerKey" = "8:_A9DFD73A8947480C91888085B270B44D"
+        "OwnerKey" = "8:_90D87250BBE44B83A80498D21E971451"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_E45D609F72F779D9C7BEFA9D481C513D"
-        "OwnerKey" = "8:_A9DFD73A8947480C91888085B270B44D"
+        "OwnerKey" = "8:_90D87250BBE44B83A80498D21E971451"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_EF5D60A3BCA2C35ABA98D0DDEDE4D61C"
-        "OwnerKey" = "8:_A9DFD73A8947480C91888085B270B44D"
+        "OwnerKey" = "8:_90D87250BBE44B83A80498D21E971451"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -109,6 +115,22 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
+            }
         }
         "Release"
         {
@@ -125,6 +147,22 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
+            }
         }
     }
     "Deployable"
@@ -146,6 +184,26 @@
         }
         "File"
         {
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_3BB88C20ADB360A937CDA20F1E063331"
+            {
+            "SourcePath" = "8:VCRUNTIME140_1.dll"
+            "TargetName" = "8:VCRUNTIME140_1.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_A30BB492857F4630A4DE736A71B9BCA8"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_3D0C0428744288FFA1C76B97F8B6C6CF"
             {
             "SourcePath" = "8:api-ms-win-crt-conio-l1-1-0.dll"
@@ -453,15 +511,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:BuffGame"
-        "ProductCode" = "8:{B01E9D63-2F3E-46D4-8E76-4DF78FAC09D3}"
-        "PackageCode" = "8:{BFD43FE9-EAE6-42AA-86FC-BDC70EDED53C}"
+        "ProductCode" = "8:{3DBDEAC5-1EE9-4896-B459-5E4179523D5B}"
+        "PackageCode" = "8:{25F12E25-65A7-4F03-B1DA-5D5201E9EA20}"
         "UpgradeCode" = "8:{4FD94AA0-DB19-44B1-8007-671F28C83D60}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:FALSE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.0.0"
+        "ProductVersion" = "8:1.6"
         "Manufacturer" = "8:DOOMz"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
@@ -469,7 +527,7 @@
         "Subject" = "8:"
         "ARPCONTACT" = "8:Deirror"
         "Keywords" = "8:"
-        "ARPCOMMENTS" = "8:Console Game "
+        "ARPCOMMENTS" = "8:Console Game"
         "ARPURLINFOABOUT" = "8:"
         "ARPPRODUCTICON" = "8:"
         "ARPIconIndex" = "3:0"
@@ -574,7 +632,7 @@
         }
         "Shortcut"
         {
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_2687DEB9A4DD49DC9EE79B594446012E"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_4EA3EE04237A4A739D0136B2D0922F50"
             {
             "Name" = "8:BuffGame"
             "Arguments" = "8:"
@@ -582,13 +640,13 @@
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_A9DFD73A8947480C91888085B270B44D"
+            "Target" = "8:_90D87250BBE44B83A80498D21E971451"
             "Folder" = "8:_1F52544D642A4B31B92BF690892BEA6D"
             "WorkingFolder" = "8:_A30BB492857F4630A4DE736A71B9BCA8"
             "Icon" = "8:_762B67376CBE4F0FB41868DF8AA13897"
             "Feature" = "8:"
             }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_79D50AEFEBDB4F75B7E65335D003B14C"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_61E0C09AD9914DFFA0F964E53815C547"
             {
             "Name" = "8:BuffGame"
             "Arguments" = "8:"
@@ -596,7 +654,7 @@
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_A9DFD73A8947480C91888085B270B44D"
+            "Target" = "8:_90D87250BBE44B83A80498D21E971451"
             "Folder" = "8:_32325ECB87A04BFE8AB6F31FDF45860A"
             "WorkingFolder" = "8:_A30BB492857F4630A4DE736A71B9BCA8"
             "Icon" = "8:_762B67376CBE4F0FB41868DF8AA13897"
@@ -1001,7 +1059,7 @@
         }
         "ProjectOutput"
         {
-            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_4D4F2979590E4A91AF15C8EFEF2AE6CA"
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_006E00B07D014552A81979F872DC2280"
             {
             "SourcePath" = "8:"
             "TargetName" = "8:"
@@ -1021,7 +1079,7 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             "ProjectOutputGroupRegister" = "3:1"
-            "OutputConfiguration" = "8:Release|Win32"
+            "OutputConfiguration" = "8:"
             "OutputGroupCanonicalName" = "8:Built"
             "OutputProjectGuid" = "8:{64223ABB-816F-435E-806D-C1757A7F67FA}"
             "ShowKeyOutput" = "11:TRUE"
@@ -1029,9 +1087,9 @@
                 {
                 }
             }
-            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_A9DFD73A8947480C91888085B270B44D"
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_90D87250BBE44B83A80498D21E971451"
             {
-            "SourcePath" = "8:..\\bin\\Win32\\Release\\Game.exe"
+            "SourcePath" = "8:..\\bin\\x64\\Release\\Game.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_A30BB492857F4630A4DE736A71B9BCA8"
@@ -1049,7 +1107,7 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             "ProjectOutputGroupRegister" = "3:1"
-            "OutputConfiguration" = "8:Release|Win32"
+            "OutputConfiguration" = "8:"
             "OutputGroupCanonicalName" = "8:Built"
             "OutputProjectGuid" = "8:{290F77A9-5ABF-43F6-99CE-A35D34A30287}"
             "ShowKeyOutput" = "11:TRUE"
