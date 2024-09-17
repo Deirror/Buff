@@ -24,7 +24,7 @@ Press F to freeze nad unfreeze the loading screen for some time.
 
 5.By pressing ENTER the game starts. If you want to restart press R or to espace ESC.
 
-//video
+https://github.com/user-attachments/assets/131e3c99-cea9-4c4e-89d6-b625d790bd63
 
 How to win a game?
 -
