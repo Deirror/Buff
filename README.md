@@ -81,4 +81,6 @@ All Time Game Versions
 | `v1.1` | Created map *Xiodimas*, Introduced *Loading Screen* and *Processing Screen* |
 | `v1.2` | Huge Update! Added Troll, Timy, Null and Death Item, and Extented Item Validators to ***Buff***, Created map *FAKT*, Introduced *Play Again* and *Change Color Randomly* |
 | `v1.3` | Added Random Item to ***Buff***, Created maps *ThePit* and *Blocksmc*, Introduced *Restart Game* and *Switch Map* |
-| `v1.4` | Created map *DOOMz* |
+| `v1.4` | Created map *DOOMz*, Changed the Console Interface |
+| `v1.5` | Added random item generating functionality on the maps, Created map *BAK* |
+| `v1.6` | Introduced *Freeze Screen*, *Quick Tips and Menu* and *Time Out Animation* |
