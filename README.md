@@ -47,11 +47,14 @@ What maps are there?
 
 There are 3 variants:
 
-1.Alphabetic - contains the letters from the alphabet + some special symbols(for teleporting or killing)
+1.Alphabetic - contains the letters from the alphabet + some special symbols(for teleporting or killing)                                                                       
+(-)"Azbuki" - Huge, "Xidiomas" - Small, "FAKT" - Gigantic
 
-2.Randomized - contains '?' and again the special symbols
+2.Randomized - contains '?' and again the special symbols                                                                                                                
+(-)"ThePit" - Medium, "Blocksmc" - Small
 
-3.Imposter - contains all types of symbols
+3.Imposter - contains all types of symbols                                                                                                                                
+(-)"DOOMz" - Medium, "BAK" - Medium
 
 What items are there?
 -
