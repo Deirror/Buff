@@ -75,7 +75,7 @@ https://github.com/user-attachments/assets/0e733861-c44b-496f-b8b6-94e15adf6bc4
 
 All Time Game Versions
 -
-| Version | What's newly added |
+| Version | What was featured? |
 | -- | --- |
 | `v1.0` | Added Standart and Teleport Item to ***Buff***, Created the first map *Azbuki* |
 
