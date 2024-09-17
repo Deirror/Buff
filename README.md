@@ -15,12 +15,12 @@ How to play?
 
 1.When you open the game, the main menu pops up. 
 
-2.Just Press a number as already shown to choose a variant and then the map.
+2.Just Press a number as already shown to choose a variant and then a map.
 
-3.If you don't like the variant map you have chosen, just press R to retrun back to the starting menu.
+3.If you don't like the variant you have chosen, just press R to retrun back to the starting menu.
 
 4.After you confirm the variant and the map, a loading screen pops up. There are some basic instructions + some quick tips :D
-Press F to freeze nad unfreeze the screen for some time.
+Press F to freeze nad unfreeze the loading screen for some time.
 
 5.By pressing ENTER the game starts. If you want to restart press R or to espace ESC.
 
