@@ -36,4 +36,13 @@ That is how the winning screen looks like:
 
 ![Screenshot (619)](https://github.com/user-attachments/assets/ad952cc3-a6a8-48b3-a1e3-b9590663b6bc)
 
+What maps are there?
+-
 
+There are 3 variants:
+
+1.Alphabetic - contains the letters from the alphabet + some special symbols(for teleporting or killing)
+
+2.Randomized - contains '?' and again the special symbols
+
+3.Imposter - contains all types of symbols
