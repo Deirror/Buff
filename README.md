@@ -47,7 +47,7 @@ There are 3 variants:
 
 3.Imposter - contains all types of symbols
 
-What item are there?
+What items are there?
 -
 
 There are 7 different items?
