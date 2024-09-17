@@ -58,13 +58,13 @@ What items are there?
 There are 7 different items:
 | Item Names | Description |
 | --- | --- |
-| Standart Item | Gives points and resets left time |
-| Null Item | Just exists lol, doesn't affect stats |
-| Timy Item | Gives huge amount of time |
-| Random Item | Gives random stats |
-| Teleport Item | Teleports to given coordinates |
-| Troll Item | Steals current points and teleports to bad place |
-| Death Item | Ends your game by force |
+| `Standart Item` | Gives points and resets left time |
+| `Null Item` | Just exists lol, doesn't affect stats |
+| `Timy Item` | Gives huge amount of time |
+| `Random Item` | Gives random stats |
+| `Teleport Item` | Teleports to given coordinates |
+| `Troll Item` | Steals current points and teleports to bad place |
+| `Death Item` | Ends your game by force |
 
 Cool features to the game?
 -
