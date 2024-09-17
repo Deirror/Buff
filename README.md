@@ -1,4 +1,4 @@
-# Buff ![BUFF](https://github.com/user-attachments/assets/d3d85bb0-5268-405e-8813-d85e4a674597)
+# Buff
 
 A Windows specific console game, called "Buff", which is pretty well structured and has most of the options, which you can find in a simple console game (Escape Button, Confirm, Return Back, Help and etc.)
 
