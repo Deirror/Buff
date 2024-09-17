@@ -48,9 +48,9 @@ What maps are there?
 There are 3 variants:
 | Variant Names | Description | Maps |
 | --- | --- | --- |
-| *Alphabetic* | Contains the letters from the alphabet + some special symbols (for teleporting or killing) | *Azbuki*, *Xidiomas*, *FAKT* |
-| *Randomized* | Contains '?' and again the special symbols | *ThePit*, *Blocksmc* |
-| *Imposter* | Contains all types of symbols | *DOOMz*, *BAK* |
+| `Alphabetic` | Contains the letters from the alphabet + some special symbols (for teleporting or killing) | *Azbuki*, *Xidiomas*, *FAKT* |
+| `Randomized` | Contains '?' and again the special symbols | *ThePit*, *Blocksmc* |
+| `Imposter` | Contains all types of symbols | *DOOMz*, *BAK* |
 
 What items are there?
 -
@@ -77,5 +77,5 @@ All Time Game Versions
 -
 | Version | What's newly added |
 | -- | --- |
-| v1.0 | Added Standart and Teleport Item to ***Buff*** |
+| `v1.0` | Added Standart and Teleport Item to ***Buff*** |
 
