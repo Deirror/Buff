@@ -84,3 +84,13 @@ All Time Game Versions
 | `v1.4` | Created map *DOOMz*, Changed the Console Interface |
 | `v1.5` | Added random item generating functionality on the maps, Created map *BAK* |
 | `v1.6` | Introduced *Freeze Screen*, *Quick Tips and Menu* and *Time Out Animation* |
+
+About the installation 
+-
+
+As this free console game is Windows specific, I decided to create a .msi and not use CMake. In the repo there is a folder with the install files.
+
+How to reach out to me?
+-
+
+If you find bugs, glitches or whatsoever, write a letter at [alexmailbg@gmail.com](https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox?compose=new)
