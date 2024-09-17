@@ -59,18 +59,13 @@ There are 3 variants:
 What items are there?
 -
 
-There are 7 different items?
-
-1.Standart Item - gives points and resets left time
-
-2.Null Item - just exists lol, doesn't affect stats
-
-3.Timy Item - gives huge amount of time
-
-4.Random Item - gives random stats
-
-5.Teleport Item - teleports to given coordinates
-
-6.Troll Item - steals current points and teleports to bad place
-
-7.Death Item - ends your game by force
+There are 7 different items:
+| Item Names | Description |
+| --- | --- |
+| Standart Item | Gives points and resets left time |
+| Null Item | Just exists lol, doesn't affect stats |
+| Timy Item | Gives huge amount of time |
+| Random Item | Gives random stats |
+| Teleport Item | Teleports to given coordinates |
+| Troll Item | Steals current points and teleports to bad place |
+| Death Item | ends your game by force |
