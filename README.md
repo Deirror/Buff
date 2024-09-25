@@ -90,6 +90,8 @@ About the installation
 
 As this free console game is Windows specific, I decided to create a .msi and not use CMake. In the repo there is a folder with the install files.
 
+//Edit -> So far I noticed that it works on all Windows versions except Windows 11
+
 How to reach out to me?
 -
 
